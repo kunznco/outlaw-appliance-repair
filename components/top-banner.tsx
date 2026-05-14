@@ -1,22 +1,34 @@
-import { announcements } from "@/lib/site";
+import { site } from "@/lib/site";
 
+/**
+ * Quiet informational strip — replaces the previous scrolling marquee.
+ * Static, single line, smaller. Reinforces trust without shouting.
+ */
 export function TopBanner() {
-  // Duplicate the announcements for seamless marquee loop
-  const items = [...announcements, ...announcements];
+  const items = [
+    "Family-owned in San Diego",
+    `1-Year Warranty`,
+    `CA Lic. ${site.license}`,
+    "Same-Day Service",
+  ];
   return (
-    <div className="bg-plate text-ink border-b-[3px] border-ink overflow-hidden">
+    <div className="bg-ink text-cream border-b border-ink">
       <div
-        className="marquee-track py-2 text-xs sm:text-sm"
+        className="mx-auto max-w-[1240px] px-4 sm:px-6 py-2 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-[0.68rem] sm:text-xs"
         style={{
           fontFamily: "var(--font-display)",
-          letterSpacing: "0.16em",
+          letterSpacing: "0.12em",
           textTransform: "uppercase",
         }}
       >
         {items.map((text, i) => (
-          <span key={i} className="inline-flex items-center gap-2">
-            <span className="text-rust">★</span>
-            {text}
+          <span key={i} className="inline-flex items-center gap-1.5">
+            {i > 0 && (
+              <span aria-hidden className="text-plate opacity-60">
+                ·
+              </span>
+            )}
+            <span>{text}</span>
           </span>
         ))}
       </div>

@@ -2,89 +2,60 @@ import { site } from "@/lib/site";
 
 export function WantedPoster() {
   return (
-    <section className="relative py-24 bg-cream-soft">
-      {/* Diagonal stripe top + bottom */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 top-0 h-2"
-        style={{
-          background:
-            "repeating-linear-gradient(45deg, var(--color-ink), var(--color-ink) 8px, transparent 8px, transparent 16px)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 h-2"
-        style={{
-          background:
-            "repeating-linear-gradient(45deg, var(--color-ink), var(--color-ink) 8px, transparent 8px, transparent 16px)",
-        }}
-      />
-
+    <section className="py-20 bg-cream-soft">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-        <div
-          className="max-w-[620px] mx-auto bg-paper border-[3px] border-ink p-8 sm:p-10 text-center relative"
-          style={{
-            boxShadow:
-              "0 0 0 8px var(--color-paper), 0 0 0 11px var(--color-ink), 14px 14px 0 var(--color-rust)",
-          }}
-        >
+        <div className="max-w-[620px] mx-auto bg-paper border-2 border-ink p-8 sm:p-10 text-center relative shadow-[6px_6px_0_var(--color-ink)]">
           <div
-            className="uppercase tracking-[0.3em] text-ink mb-2 text-sm"
+            className="uppercase tracking-[0.18em] text-rust mb-3 text-xs"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            ★ Wanted ★ In Every Kitchen ★
+            Honest Pricing · No Surprises
           </div>
           <h2
-            className="display text-ink mb-1"
+            className="display text-ink mb-2"
             style={{
-              fontSize: "clamp(3.2rem, 7vw, 5rem)",
-              letterSpacing: "0.04em",
-              lineHeight: 0.9,
+              fontSize: "clamp(2.2rem, 5vw, 3.2rem)",
+              lineHeight: 1,
             }}
           >
-            Broken
-            <br />
-            Appliances
+            One Flat Diagnosis Fee.
           </h2>
           <p
-            className="italic text-ink-soft mb-8"
+            className="italic text-ink-soft mb-6 max-w-[40ch] mx-auto"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            No appliance is safe when the Outlaw rides through town.
+            We come out, find the problem, and tell you exactly what it
+            takes to fix.
           </p>
 
-          <div className="border-y-2 border-ink py-6 my-6 flex items-center justify-center gap-5">
+          <div className="border-y border-ink py-5 my-5 flex items-center justify-center gap-4 flex-wrap">
             <span
               className="text-rust leading-none"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "5rem",
+                fontSize: "3.8rem",
                 letterSpacing: "-0.02em",
               }}
             >
               ${site.serviceCallPrice}
             </span>
             <span
-              className="uppercase tracking-[0.14em] text-left max-w-[14ch] leading-tight"
-              style={{ fontFamily: "var(--font-display)", fontSize: "0.95rem" }}
+              className="uppercase tracking-[0.12em] text-left max-w-[16ch] leading-tight text-ink"
+              style={{ fontFamily: "var(--font-display)", fontSize: "0.82rem" }}
             >
               Service Call —<br />
-              Fully Waived
-              <br />
-              If We Can&apos;t Fix It
+              <span className="text-rust">Fully Waived</span><br />
+              When We Make The Fix
             </span>
           </div>
 
           <p
-            className="italic text-ink-soft mt-4 leading-relaxed text-sm sm:text-base"
+            className="text-ink-soft text-sm sm:text-base leading-relaxed max-w-[44ch] mx-auto"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Diagnose your appliance for a flat ${site.serviceCallPrice}. If we
-            can&apos;t put it back in working order on the first visit, the
-            service call&apos;s on us. Every repair backed by a one-year
-            warranty and factory-certified parts.{" "}
-            <em>That&apos;s the rule of the Outlaw.</em>
+            If we can&apos;t put your appliance back in working order on the
+            first visit, the diagnosis is free. Every repair is backed by a
+            one-year warranty and factory-certified parts.
           </p>
         </div>
       </div>

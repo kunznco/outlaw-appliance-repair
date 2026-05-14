@@ -4,55 +4,49 @@ export function FinalCta() {
   return (
     <section
       id="contact"
-      className="bg-rust text-cream border-y-[3px] border-ink py-24 text-center overflow-hidden"
+      className="bg-cream-soft border-t border-ink py-20 sm:py-24 text-center"
     >
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
         <div
-          className="inline-flex items-center gap-2 text-plate uppercase tracking-[0.18em] text-xs mb-3 justify-center"
+          className="inline-flex items-center gap-2 text-ink-soft uppercase tracking-[0.16em] text-[0.72rem] mb-3"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          <span>★</span> Ready When You Are <span>★</span>
+          <span aria-hidden className="text-rust">★</span>
+          Ready When You Are
         </div>
         <h2
-          className="display mb-3"
-          style={{ fontSize: "clamp(2.6rem, 6vw, 4.5rem)", lineHeight: 0.95 }}
+          className="display text-ink mb-2"
+          style={{ fontSize: "clamp(2.2rem, 5vw, 3.2rem)", lineHeight: 1 }}
         >
-          Put That Appliance
-          <br />
-          Back In Business.
+          Let&apos;s Get That Appliance Working Again.
         </h2>
+        <p
+          className="italic text-ink-soft max-w-[50ch] mx-auto mb-8 mt-3"
+          style={{ fontFamily: "var(--font-body)", fontSize: "1.05rem" }}
+        >
+          Same-day service across San Diego County. Call us or send a
+          message and we&apos;ll get back to you within the hour.
+        </p>
         <a
           href={`tel:${site.phoneRaw}`}
-          className="block text-plate my-6"
+          className="inline-block text-rust my-2"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(2.8rem, 8vw, 5.2rem)",
-            letterSpacing: "0.02em",
-            textShadow: "4px 4px 0 var(--color-ink)",
+            fontSize: "clamp(2.4rem, 6.5vw, 4rem)",
+            letterSpacing: "0.01em",
+            lineHeight: 1,
           }}
           aria-label={`Call ${site.phone}`}
         >
           {site.phone}
         </a>
-        <p
-          className="italic text-cream-soft max-w-[50ch] mx-auto mb-8"
-          style={{ fontFamily: "var(--font-body)" }}
-        >
-          Or send a message — same-day callback during business hours. We
-          service all of San Diego County.
-        </p>
-        <div className="inline-flex gap-4 flex-wrap justify-center">
-          <a
-            href={`tel:${site.phoneRaw}`}
-            className="btn-primary"
-            style={{ background: "var(--color-ink)", color: "var(--color-cream)" }}
-          >
-            <span aria-hidden>☎</span> Call Jesse Now
+        <div className="inline-flex gap-3 flex-wrap justify-center mt-7">
+          <a href={`tel:${site.phoneRaw}`} className="btn-primary">
+            <span aria-hidden>☎</span> Call {site.owner} Now
           </a>
           <a
             href={`mailto:${site.email}?subject=Appliance%20Repair%20Quote`}
             className="btn-ghost"
-            style={{ background: "var(--color-plate)", color: "var(--color-ink)" }}
           >
             Send a Message <span aria-hidden>→</span>
           </a>
