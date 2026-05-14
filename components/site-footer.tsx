@@ -10,13 +10,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
         <div className="grid sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12 mb-12">
           <div className="flex flex-col gap-4">
-            <Logo variant="shield" className="w-24 h-auto" />
-            <div
-              className="text-base"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              <span className="text-rust">OUTLAW</span> APPLIANCE
-            </div>
+            <Logo variant="shield" className="w-36 h-auto" />
             <p
               className="italic text-ink-soft leading-relaxed max-w-[30ch]"
               style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem" }}

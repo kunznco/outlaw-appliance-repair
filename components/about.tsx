@@ -6,21 +6,22 @@ export function About() {
     <section id="about" className="py-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
         <div className="grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-16 items-center">
-          <div className="relative aspect-square max-w-[460px] w-full mx-auto">
+          <div className="relative max-w-[460px] w-full mx-auto">
             <Logo
               variant="shield"
-              className="w-full h-full"
-              title="Jesse — Proprietor of Outlaw Appliance Repair"
+              className="w-full h-auto"
+              title="Outlaw Appliance Repair — Jesse, Proprietor"
             />
             <div
-              className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-plate border-[1.5px] border-ink px-2.5 py-1 whitespace-nowrap uppercase text-ink"
+              className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-plate border-[1.5px] border-ink px-3 py-1 whitespace-nowrap uppercase text-ink"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "0.6rem",
+                fontSize: "0.65rem",
                 letterSpacing: "0.18em",
+                boxShadow: "2px 2px 0 var(--color-ink)",
               }}
             >
-              Jesse · Proprietor
+              ★ Jesse · Proprietor ★
             </div>
           </div>
 

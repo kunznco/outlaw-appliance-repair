@@ -74,7 +74,8 @@ export function Hero() {
             </span>
             <Logo
               variant="primary"
-              className="w-[clamp(240px,36vw,380px)] drop-shadow-[6px_8px_0_rgba(26,24,20,0.15)]"
+              priority
+              className="w-[clamp(240px,36vw,380px)] h-auto drop-shadow-[6px_8px_0_rgba(26,24,20,0.15)]"
             />
             <LicensePlate number={site.license} />
             <span

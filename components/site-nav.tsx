@@ -10,25 +10,20 @@ export function SiteNav() {
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 flex items-center justify-between gap-4 py-3">
         <a
           href="/"
-          className="flex items-center gap-3 shrink-0"
+          className="flex items-center shrink-0"
           aria-label={`${site.name} home`}
         >
-          <Logo variant="icon" className="h-11 w-11" />
-          <div className="hidden sm:block leading-tight">
-            <div
-              className="text-base sm:text-lg"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              <span className="text-rust">OUTLAW</span>{" "}
-              <span className="text-ink">APPLIANCE</span>
-            </div>
-            <div
-              className="text-[0.6rem] tracking-[0.18em] uppercase text-ink-soft mt-0.5"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              San Diego · Lic. {site.license}
-            </div>
-          </div>
+          {/* Mobile: square skull icon. Desktop: full horizontal lockup. */}
+          <Logo
+            variant="icon"
+            className="h-11 w-11 sm:hidden"
+            priority
+          />
+          <Logo
+            variant="horizontal"
+            className="hidden sm:block h-12 w-auto md:h-14"
+            priority
+          />
         </a>
 
         <div className="hidden lg:flex items-center gap-6">
