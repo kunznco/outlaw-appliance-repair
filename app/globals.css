@@ -1,26 +1,153 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   OUTLAW APPLIANCE REPAIR — design tokens
+   Palette: vintage Americana / outlaw western
+   Type system: Alfa Slab One (display) + Fraunces (body)
+   ============================================================ */
+
+@theme {
+  /* Palette */
+  --color-cream: #F4EDDF;
+  --color-cream-soft: #EEE5D2;
+  --color-cream-deep: #E5D8BD;
+  --color-paper: #FBF6E9;
+  --color-ink: #1A1814;
+  --color-ink-soft: #2C2620;
+  --color-rust: #A0432B;
+  --color-rust-deep: #842F1A;
+  --color-rust-soft: #B85838;
+  --color-plate: #E8B948;
+  --color-plate-deep: #C99A2C;
+  --color-teal-disc: #2F5C6E;
+
+  /* Font families wired from next/font in layout.tsx */
+  --font-display: var(--font-alfa-slab), "Times New Roman", serif;
+  --font-body: var(--font-fraunces), Georgia, serif;
+
+  /* Shadows */
+  --shadow-stamp: 4px 4px 0 var(--color-ink);
+  --shadow-stamp-lg: 6px 6px 0 var(--color-ink);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ---------- Reset ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-optical-sizing: auto;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+
+/* ---------- Reusable atoms ---------- */
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-rust);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.eyebrow::before, .eyebrow::after {
+  content: "★";
+  color: var(--color-rust);
+  font-size: 0.9em;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* ---------- Buttons (CTA) ---------- */
+.btn-primary, .btn-ghost {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--color-ink);
+  box-shadow: var(--shadow-stamp);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+.btn-primary { background: var(--color-rust); color: var(--color-cream); }
+.btn-ghost { background: var(--color-cream); color: var(--color-ink); }
+.btn-primary:hover, .btn-ghost:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-stamp-lg);
+}
+
+/* ---------- License plate atom ---------- */
+.plate {
+  background: var(--color-plate);
+  border: 3px solid var(--color-ink);
+  border-radius: 8px;
+  padding: 0.4rem 1.4rem 0.5rem;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  color: var(--color-ink);
+  box-shadow: 3px 3px 0 var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.plate::before, .plate::after {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--color-ink);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.plate .state {
+  font-size: 0.55em;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  padding-right: 0.6rem;
+  border-right: 1px solid var(--color-ink);
+}
+.plate .number {
+  font-size: 1.4em;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+/* ---------- Animation: rise on load ---------- */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise { opacity: 0; animation: rise 0.7s ease forwards; }
+.rise-1 { animation-delay: 0.05s; }
+.rise-2 { animation-delay: 0.15s; }
+.rise-3 { animation-delay: 0.3s; }
+.rise-4 { animation-delay: 0.45s; }
+.rise-5 { animation-delay: 0.6s; }
+
+/* ---------- Marquee ---------- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  white-space: nowrap;
+  animation: marquee 32s linear infinite;
+  width: max-content;
 }

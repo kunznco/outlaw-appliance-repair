@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Outlaw Appliance Repair — San Diego's Factory-Trained Repair Crew</title>
+<meta name="description" content="Licensed San Diego appliance repair. 9 appliance types, factory-certified parts, 1-year warranty. Call (619) 888-3136. Where expertise meets reliability." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     OUTLAW APPLIANCE REPAIR — V1 HOME MOCKUP
+     Aesthetic: vintage Americana / wanted-poster / sign-painter
+     Type system: Alfa Slab One (display) + Fraunces (body)
+     ============================================================ */
+
+  :root {
+    --cream: #F4EDDF;
+    --cream-soft: #EEE5D2;
+    --cream-deep: #E5D8BD;
+    --ink: #1A1814;
+    --ink-soft: #2C2620;
+    --rust: #A0432B;
+    --rust-deep: #842F1A;
+    --rust-soft: #B85838;
+    --plate: #E8B948;
+    --plate-deep: #C99A2C;
+    --paper: #FBF6E9;
+
+    --display: "Alfa Slab One", "Times New Roman", serif;
+    --body: "Fraunces", Georgia, serif;
+
+    --measure: 68ch;
+    --shadow-stamp: 4px 4px 0 var(--ink);
+    --shadow-paper: 0 1px 0 rgba(26,24,20,0.04), 0 12px 24px -8px rgba(26,24,20,0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--body);
+    font-optical-sizing: auto;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ---------- Reusable type tokens ---------- */
+  .eyebrow {
+    font-family: var(--display);
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rust);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: "★";
+    color: var(--rust);
+    font-size: 0.9em;
+    display: inline-block;
+  }
+  .display {
+    font-family: var(--display);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+  .lede {
+    font-family: var(--body);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    max-width: 32ch;
+  }
+  .small-caps {
+    font-family: var(--display);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.82rem;
+  }
+
+  /* ---------- Layout containers ---------- */
+  .container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  section { padding: 5rem 0; }
+
+  /* ============================================================
+     TOP BANNER — license plate yellow strip
+     ============================================================ */
+  .top-banner {
+    background: var(--plate);
+    color: var(--ink);
+    border-bottom: 3px solid var(--ink);
+    overflow: hidden;
+    position: relative;
+  }
+  .top-banner-track {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 0.6rem 0;
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    white-space: nowrap;
+    animation: marquee 32s linear infinite;
+    width: max-content;
+  }
+  .top-banner-track span { display: inline-flex; align-items: center; gap: 0.6em; }
+  .top-banner-track span::before { content: "★"; color: var(--rust); }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ============================================================
+     NAV
+     ============================================================ */
+  .nav {
+    background: var(--cream);
+    border-bottom: 1px solid var(--ink);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 0;
+    gap: 1rem;
+  }
+  .brand-lockup {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .brand-lockup svg { width: 44px; height: 44px; }
+  .brand-wordmark {
+    font-family: var(--display);
+    font-size: 1.2rem;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+  }
+  .brand-wordmark .rust-word { color: var(--rust); }
+  .brand-sub {
+    font-family: var(--body);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+  .nav-links a {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    position: relative;
+    padding: 0.4rem 0;
+  }
+  .nav-links a:hover { color: var(--rust); }
+  .nav-links a:hover::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 2px;
+    background: var(--rust);
+  }
+  .nav-cta {
+    background: var(--rust);
+    color: var(--cream);
+    font-family: var(--display);
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    padding: 0.75rem 1.2rem;
+    border: 2px solid var(--ink);
+    box-shadow: var(--shadow-stamp);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .nav-cta:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink); color: var(--cream); }
+  .nav-cta::before { content: "☎"; font-family: var(--body); }
+  @media (max-width: 880px) {
+    .nav-links { display: none; }
+  }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    position: relative;
+    padding: 5rem 0 6rem;
+    background: var(--cream);
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    gap: 0.5rem;
+    font-family: var(--display);
+    font-size: 0.85rem;
+    letter-spacing: 0.22em;
+    color: var(--rust);
+    margin-bottom: 1.4rem;
+  }
+  .hero-eyebrow .bar { display: inline-block; width: 32px; height: 2px; background: var(--rust); align-self: center; }
+
+  .hero-headline {
+    font-family: var(--display);
+    text-transform: uppercase;
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+  }
+  .hero-headline .outlaw {
+    display: block;
+    color: var(--rust);
+    font-size: clamp(4.5rem, 14vw, 9.5rem);
+    text-shadow: 5px 5px 0 var(--ink);
+    margin-bottom: 0.15em;
+  }
+  .hero-headline .applianced {
+    display: block;
+    color: var(--ink);
+    font-size: clamp(2.2rem, 6.4vw, 4.3rem);
+    letter-spacing: -0.005em;
+  }
+  .hero-sub {
+    margin-top: 1.6rem;
+    font-family: var(--body);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.35rem;
+    line-height: 1.45;
+    max-width: 30ch;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--rust);
+    padding-left: 1rem;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary, .btn-ghost {
+    font-family: var(--display);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--ink);
+    box-shadow: var(--shadow-stamp);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--rust); color: var(--cream); }
+  .btn-primary::before { content: "☎"; font-family: var(--body); font-size: 1.1em; }
+  .btn-ghost { background: var(--cream); color: var(--ink); }
+  .btn-ghost::after { content: "→"; font-family: var(--body); font-size: 1.2em; }
+  .btn-primary:hover, .btn-ghost:hover {
+    transform: translate(-2px,-2px);
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+
+  /* hero right column — the badge / license plate stack */
+  .hero-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+  }
+  .hero-stack .ornament {
+    color: var(--rust);
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+  }
+
+  /* ---- License plate component ---- */
+  .plate {
+    background: var(--plate);
+    border: 3px solid var(--ink);
+    border-radius: 8px;
+    padding: 0.4rem 1.4rem 0.5rem;
+    font-family: var(--display);
+    text-transform: uppercase;
+    color: var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+  }
+  .plate::before, .plate::after {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--ink);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .plate .state {
+    font-size: 0.55em;
+    letter-spacing: 0.15em;
+    line-height: 1;
+    padding-right: 0.6rem;
+    border-right: 1px solid var(--ink);
+  }
+  .plate .number {
+    font-size: 1.4em;
+    letter-spacing: 0.06em;
+    line-height: 1;
+  }
+
+  /* ---- THE OUTLAW BADGE — the signature element ---- */
+  .badge {
+    position: relative;
+    display: block;
+    width: 280px; height: 280px;
+  }
+  .badge svg { width: 100%; height: 100%; }
+  .hero-badge {
+    width: clamp(220px, 32vw, 320px);
+    height: clamp(220px, 32vw, 320px);
+    filter: drop-shadow(6px 8px 0 rgba(26,24,20,0.15));
+  }
+
+  /* hero pricing pill */
+  .pricing-pill {
+    margin-top: 1.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.6rem 1.2rem 0.6rem 0.6rem;
+    border-radius: 999px;
+    border: 2px solid var(--ink);
+  }
+  .pricing-pill .dollar {
+    background: var(--plate);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    letter-spacing: -0.02em;
+  }
+  .pricing-pill .label {
+    font-family: var(--display);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+  }
+  .pricing-pill .sub {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--cream-soft);
+  }
+
+  /* ============================================================
+     TRUST STRIP — below hero
+     ============================================================ */
+  .trust-strip {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 1.5rem 0;
+    border-top: 3px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
+  }
+  .trust-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--display);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .trust-item svg { width: 22px; height: 22px; flex-shrink: 0; }
+  .trust-item .star-rating { color: var(--plate); letter-spacing: 0.1em; }
+
+  /* ============================================================
+     SERVICES GRID
+     ============================================================ */
+  .services { padding: 6rem 0; }
+  .section-head {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .section-head .eyebrow { margin-bottom: 1rem; }
+  .section-head h2 {
+    font-family: var(--display);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .section-head h2 .accent { color: var(--rust); }
+  .section-head .deck {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    margin-top: 1rem;
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .service-card {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    box-shadow: var(--shadow-stamp);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card:hover {
+    transform: translate(-3px,-3px);
+    box-shadow: 7px 7px 0 var(--ink);
+  }
+  .service-card .corner-mark {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    font-family: var(--display);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--rust);
+    opacity: 0.5;
+  }
+  .service-icon {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: var(--cream-deep);
+    border: 1.5px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-icon svg { width: 60%; height: 60%; }
+  .service-icon .nano-tag {
+    position: absolute;
+    bottom: 6px; left: 6px;
+    font-family: var(--display);
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    background: var(--plate);
+    padding: 2px 6px;
+    border: 1px solid var(--ink);
+    opacity: 0.85;
+  }
+  .service-card h3 {
+    font-family: var(--display);
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+  }
+  .service-card p {
+    font-family: var(--body);
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .service-card .arrow {
+    margin-top: auto;
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    color: var(--rust);
+    text-transform: uppercase;
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  @media (max-width: 980px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
+
+  /* ============================================================
+     WANTED-POSTER PRICING SECTION
+     ============================================================ */
+  .wanted-section {
+    padding: 7rem 0;
+    background: var(--cream-soft);
+    position: relative;
+  }
+  .wanted-section::before, .wanted-section::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    height: 8px;
+    background: repeating-linear-gradient(45deg, var(--ink), var(--ink) 8px, transparent 8px, transparent 16px);
+  }
+  .wanted-section::before { top: 0; }
+  .wanted-section::after { bottom: 0; }
+
+  .wanted-poster {
+    max-width: 620px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 3px solid var(--ink);
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    box-shadow:
+      0 0 0 8px var(--paper),
+      0 0 0 11px var(--ink),
+      14px 14px 0 var(--rust);
+    text-align: center;
+  }
+  .wanted-poster .wanted-eyebrow {
+    font-family: var(--display);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .wanted-poster .wanted-head {
+    font-family: var(--display);
+    font-size: clamp(3.2rem, 7vw, 5rem);
+    letter-spacing: 0.04em;
+    line-height: 0.9;
+    color: var(--ink);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+  .wanted-poster .wanted-sub {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+  }
+  .wanted-poster .reward-block {
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    padding: 1.5rem 0;
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+  .wanted-poster .reward-block .reward {
+    font-family: var(--display);
+    font-size: 5rem;
+    color: var(--rust);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .wanted-poster .reward-block .reward-label {
+    font-family: var(--display);
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-align: left;
+    max-width: 14ch;
+    line-height: 1.2;
+  }
+  .wanted-poster .fineprint {
+    font-family: var(--body);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-top: 1rem;
+    line-height: 1.5;
+  }
+
+  /* ============================================================
+     ABOUT / MEET JESSE
+     ============================================================ */
+  .about { padding: 7rem 0; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .about-portrait {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    max-width: 460px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .about-portrait svg { width: 100%; height: 100%; }
+  .about-portrait .nano-caption {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--display);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    background: var(--plate);
+    border: 1.5px solid var(--ink);
+    padding: 4px 10px;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .about-text h2 {
+    font-family: var(--display);
+    font-size: clamp(2.4rem, 5vw, 3.5rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+  .about-text h2 .accent { color: var(--rust); }
+  .about-text p {
+    font-family: var(--body);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin-bottom: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+  .credentials-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .credential {
+    border: 2px solid var(--ink);
+    padding: 1rem;
+    background: var(--cream);
+    text-align: center;
+  }
+  .credential .label {
+    font-family: var(--display);
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    margin-bottom: 0.4rem;
+  }
+  .credential .value {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    color: var(--rust);
+    letter-spacing: 0.02em;
+  }
+  @media (max-width: 880px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  /* ============================================================
+     TESTIMONIALS
+     ============================================================ */
+  .testimonials { background: var(--ink); color: var(--cream); padding: 6rem 0; }
+  .testimonials .section-head h2 { color: var(--cream); }
+  .testimonials .section-head h2 .accent { color: var(--plate); }
+  .testimonials .section-head .eyebrow { color: var(--plate); }
+  .testimonials .section-head .eyebrow::before,
+  .testimonials .section-head .eyebrow::after { color: var(--plate); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .tcard {
+    background: var(--paper);
+    color: var(--ink);
+    border: 2px solid var(--cream);
+    box-shadow: 5px 5px 0 var(--rust);
+    padding: 1.8rem 1.5rem 1.5rem;
+    position: relative;
+    transform: rotate(-0.6deg);
+    transition: transform 0.2s ease;
+  }
+  .tcard:nth-child(2) { transform: rotate(0.5deg); }
+  .tcard:nth-child(3) { transform: rotate(-0.3deg); }
+  .tcard:hover { transform: rotate(0) translateY(-3px); }
+  .tcard .stars {
+    color: var(--plate);
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+  .tcard blockquote {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+    color: var(--ink);
+  }
+  .tcard cite {
+    font-family: var(--display);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    color: var(--rust);
+    font-style: normal;
+    display: block;
+  }
+  .tcard cite .where {
+    display: block;
+    font-family: var(--body);
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  @media (max-width: 880px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ============================================================
+     SERVICE AREA TEASER
+     ============================================================ */
+  .area { padding: 6rem 0; }
+  .area-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .area-text h2 {
+    font-family: var(--display);
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .area-text h2 .accent { color: var(--rust); }
+  .area-text p {
+    font-family: var(--body);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    max-width: 52ch;
+  }
+
+  .area-plates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-bottom: 1.5rem;
+  }
+  .area-plates .plate {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.9rem 0.35rem;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .area-plates .plate .number { font-size: 0.95em; }
+  .area-plates .plate::before, .area-plates .plate::after { width: 4px; height: 4px; }
+
+  .featured-area {
+    background: var(--rust);
+    color: var(--cream);
+    border: 3px solid var(--ink);
+    padding: 2rem 1.8rem;
+    box-shadow: 6px 6px 0 var(--ink);
+    position: relative;
+  }
+  .featured-area .eyebrow {
+    color: var(--plate);
+    margin-bottom: 0.7rem;
+  }
+  .featured-area .eyebrow::before, .featured-area .eyebrow::after { color: var(--plate); }
+  .featured-area h3 {
+    font-family: var(--display);
+    font-size: 2.1rem;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+    line-height: 1;
+  }
+  .featured-area p {
+    font-family: var(--body);
+    font-style: italic;
+    color: var(--cream-soft);
+    margin-bottom: 1.5rem;
+  }
+  .featured-area .brands {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.7rem;
+    margin-bottom: 1.5rem;
+  }
+  .featured-area .brands span {
+    font-family: var(--display);
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    background: var(--cream);
+    color: var(--rust);
+    padding: 4px 8px;
+    border: 1.5px solid var(--ink);
+  }
+  .featured-area .area-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--display);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: var(--plate);
+    color: var(--ink);
+    padding: 0.7rem 1.1rem;
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  @media (max-width: 880px) {
+    .area-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  /* ============================================================
+     FINAL CTA
+     ============================================================ */
+  .final-cta {
+    background: var(--rust);
+    color: var(--cream);
+    padding: 6rem 0;
+    text-align: center;
+    border-top: 3px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta .eyebrow {
+    color: var(--plate);
+    justify-content: center;
+    display: inline-flex;
+    margin-bottom: 1rem;
+  }
+  .final-cta .eyebrow::before, .final-cta .eyebrow::after { color: var(--plate); }
+  .final-cta h2 {
+    font-family: var(--display);
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .final-cta .phone-huge {
+    display: block;
+    font-family: var(--display);
+    font-size: clamp(2.8rem, 8vw, 5.2rem);
+    color: var(--plate);
+    margin: 1rem 0 1.5rem;
+    letter-spacing: 0.02em;
+    text-shadow: 4px 4px 0 var(--ink);
+  }
+  .final-cta .small {
+    font-family: var(--body);
+    font-style: italic;
+    color: var(--cream-soft);
+    max-width: 50ch;
+    margin: 0 auto 2rem;
+  }
+  .final-cta .cta-row { display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .final-cta .btn-primary { background: var(--ink); color: var(--cream); }
+  .final-cta .btn-ghost { background: var(--plate); color: var(--ink); }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer {
+    background: var(--cream);
+    color: var(--ink);
+    padding: 4rem 0 2rem;
+    border-top: 3px solid var(--ink);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .footer-brand { display: flex; flex-direction: column; gap: 1rem; }
+  .footer-brand .badge-mini { width: 90px; height: 90px; }
+  .footer-brand p {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 30ch;
+  }
+  footer h4 {
+    font-family: var(--display);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 1.2rem;
+    color: var(--rust);
+  }
+  footer ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  footer ul a {
+    font-family: var(--body);
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  footer ul a:hover { color: var(--rust); }
+  .footer-bottom {
+    border-top: 1px solid var(--ink);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--display);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  @media (max-width: 880px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 540px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ============================================================
+     HERO MOBILE
+     ============================================================ */
+  @media (max-width: 880px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-stack { order: -1; }
+  }
+
+  /* ============================================================
+     ENTRY ANIMATION
+     ============================================================ */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow, .hero-headline .outlaw, .hero-headline .applianced, .hero-sub, .hero-cta-row, .pricing-pill {
+    opacity: 0;
+    animation: rise 0.7s ease forwards;
+  }
+  .hero-eyebrow { animation-delay: 0.05s; }
+  .hero-headline .outlaw { animation-delay: 0.15s; }
+  .hero-headline .applianced { animation-delay: 0.25s; }
+  .hero-sub { animation-delay: 0.4s; }
+  .hero-cta-row { animation-delay: 0.55s; }
+  .pricing-pill { animation-delay: 0.7s; }
+  .hero-badge {
+    opacity: 0;
+    animation: rise 0.9s ease 0.3s forwards;
+  }
+
+  /* ============================================================
+     MOCKUP-ONLY NOTICE STRIP
+     ============================================================ */
+  .mockup-notice {
+    background: repeating-linear-gradient(45deg, var(--plate), var(--plate) 16px, var(--ink) 16px, var(--ink) 32px);
+    padding: 4px 0;
+  }
+  .mockup-notice-inner {
+    background: var(--ink);
+    color: var(--plate);
+    text-align: center;
+    padding: 0.5rem;
+    font-family: var(--display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     MOCKUP-ONLY NOTICE (remove when scaffolding)
+     ============================================================ -->
+<div class="mockup-notice">
+  <div class="mockup-notice-inner">★ V1 Design Mockup ★ For Review — Not Yet Wired to Production</div>
+</div>
+
+<!-- ============================================================
+     TOP BANNER — running announcement strip
+     ============================================================ -->
+<div class="top-banner" aria-label="Trust announcements">
+  <div class="top-banner-track">
+    <span>Licensed CA #A49881</span>
+    <span>1-Year Warranty on Every Job</span>
+    <span>Factory-Trained Technician</span>
+    <span>Family Owned, San Diego</span>
+    <span>Same-Day Service Available</span>
+    <span>$49 Service Call — Fully Waived If We Can't Fix It</span>
+    <!-- duplicate for seamless loop -->
+    <span>Licensed CA #A49881</span>
+    <span>1-Year Warranty on Every Job</span>
+    <span>Factory-Trained Technician</span>
+    <span>Family Owned, San Diego</span>
+    <span>Same-Day Service Available</span>
+    <span>$49 Service Call — Fully Waived If We Can't Fix It</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav" aria-label="Primary">
+  <div class="container nav-inner">
+    <a href="#" class="brand-lockup" aria-label="Outlaw Appliance Repair home">
+      <!-- THE OUTLAW BADGE — small variant for nav -->
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="#F4EDDF" stroke="#1A1814" stroke-width="2"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="#A0432B" stroke-width="6"/>
+        <circle cx="50" cy="50" r="33" fill="#A0432B"/>
+        <!-- crossed wrenches glyph -->
+        <g stroke="#F4EDDF" stroke-width="2.5" stroke-linecap="round" fill="none">
+          <line x1="38" y1="38" x2="62" y2="62"/>
+          <line x1="62" y1="38" x2="38" y2="62"/>
+          <circle cx="38" cy="38" r="4" fill="#F4EDDF"/>
+          <circle cx="62" cy="38" r="4" fill="#F4EDDF"/>
+          <circle cx="38" cy="62" r="4" fill="#F4EDDF"/>
+          <circle cx="62" cy="62" r="4" fill="#F4EDDF"/>
+        </g>
+        <!-- center star -->
+        <text x="50" y="56" text-anchor="middle" font-family="Alfa Slab One" font-size="14" fill="#E8B948">★</text>
+      </svg>
+      <div>
+        <div class="brand-wordmark"><span class="rust-word">OUTLAW</span> APPLIANCE</div>
+        <div class="brand-sub">San Diego • Est. CA</div>
+      </div>
+    </a>
+    <div class="nav-links" role="menubar">
+      <a href="#services">Services</a>
+      <a href="#area">Service Area</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="tel:+16198883136" class="nav-cta">(619) 888-3136</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <span class="bar"></span>
+        Wanted in San Diego
+        <span class="bar"></span>
+      </div>
+
+      <h1 class="hero-headline">
+        <span class="outlaw">Outlaw</span>
+        <span class="applianced">Appliance Repair</span>
+      </h1>
+
+      <p class="hero-sub">
+        Where expertise meets reliability. We run down the problem, fix it once, and back it with a year-long warranty.
+      </p>
+
+      <div class="hero-cta-row">
+        <a href="tel:+16198883136" class="btn-primary">Call Jesse</a>
+        <a href="#contact" class="btn-ghost">Get a Quote</a>
+      </div>
+
+      <div class="pricing-pill" role="note" aria-label="Service call pricing">
+        <span class="dollar">$49</span>
+        <span>
+          <span class="label">Service Call</span><br />
+          <span class="sub">Fully waived if we can't fix it.</span>
+        </span>
+      </div>
+    </div>
+
+    <aside class="hero-stack" aria-label="Brand seal">
+      <div class="ornament">✦ ✦ ✦</div>
+
+      <!-- THE OUTLAW BADGE — large hero variant, the signature element -->
+      <div class="badge hero-badge" role="img" aria-label="Outlaw Appliance Repair seal">
+        <svg viewBox="0 0 300 300" aria-hidden="true">
+          <!-- outer ring -->
+          <circle cx="150" cy="150" r="146" fill="#F4EDDF" stroke="#1A1814" stroke-width="3"/>
+          <circle cx="150" cy="150" r="138" fill="none" stroke="#1A1814" stroke-width="1.5"/>
+          <!-- rust ring with arched type -->
+          <circle cx="150" cy="150" r="128" fill="#A0432B"/>
+          <circle cx="150" cy="150" r="118" fill="none" stroke="#F4EDDF" stroke-width="1.5"/>
+          <!-- arched top text -->
+          <defs>
+            <path id="topArc" d="M 30,150 a 120,120 0 0 1 240,0" />
+            <path id="bottomArc" d="M 35,150 a 115,115 0 0 0 230,0" />
+          </defs>
+          <text font-family="Alfa Slab One" font-size="18" letter-spacing="4" fill="#F4EDDF">
+            <textPath href="#topArc" startOffset="50%" text-anchor="middle">OUTLAW APPLIANCE REPAIR</textPath>
+          </text>
+          <text font-family="Alfa Slab One" font-size="14" letter-spacing="3" fill="#F4EDDF">
+            <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">★ SAN DIEGO • EST. CA ★</textPath>
+          </text>
+          <!-- inner cream disc -->
+          <circle cx="150" cy="150" r="92" fill="#F4EDDF"/>
+          <circle cx="150" cy="150" r="86" fill="none" stroke="#1A1814" stroke-width="1.5"/>
+          <!-- crossed wrenches centerpiece -->
+          <g transform="translate(150 150)" fill="none" stroke="#1A1814" stroke-width="6" stroke-linecap="round">
+            <line x1="-42" y1="-42" x2="42" y2="42"/>
+            <line x1="42" y1="-42" x2="-42" y2="42"/>
+          </g>
+          <g transform="translate(150 150)" fill="#1A1814">
+            <circle cx="-42" cy="-42" r="9"/>
+            <circle cx="42" cy="-42" r="9"/>
+            <circle cx="-42" cy="42" r="9"/>
+            <circle cx="42" cy="42" r="9"/>
+          </g>
+          <!-- center star -->
+          <g transform="translate(150 150)" fill="#E8B948" stroke="#1A1814" stroke-width="2">
+            <polygon points="0,-20 5,-6 20,-6 8,4 13,18 0,9 -13,18 -8,4 -20,-6 -5,-6"/>
+          </g>
+          <!-- corner ornament dots -->
+          <circle cx="150" cy="38" r="3" fill="#1A1814"/>
+          <circle cx="150" cy="262" r="3" fill="#1A1814"/>
+        </svg>
+      </div>
+
+      <!-- license plate beneath badge -->
+      <div class="plate" role="text" aria-label="California license number A49881">
+        <span class="state">California</span>
+        <span class="number">A49881</span>
+      </div>
+
+      <div class="ornament">✦ ✦ ✦</div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST STRIP
+     ============================================================ -->
+<div class="trust-strip" aria-label="Trust signals">
+  <div class="container trust-row">
+    <div class="trust-item">
+      <span class="star-rating">★★★★★</span>
+      <span>5.0 on Google</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <span>1-Year Warranty</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+      <span>Factory-Certified Parts</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21V12h6v9"/></svg>
+      <span>Licensed A49881</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span>Same-Day Service</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SERVICES GRID
+     ============================================================ -->
+<section class="services" id="services">
+  <div class="container">
+    <header class="section-head">
+      <div class="eyebrow">Nine Appliances. One Crew.</div>
+      <h2>We Fix 'Em. <span class="accent">All Of 'Em.</span></h2>
+      <p class="deck">From a fridge that won't cool to a range that won't light — residential, commercial, and industrial. Factory-trained, with the right parts on the truck.</p>
+    </header>
+
+    <div class="services-grid">
+      <!-- Service card 1: Refrigerator -->
+      <article class="service-card">
+        <span class="corner-mark">№ 01</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 100 120" aria-hidden="true">
+            <rect x="20" y="10" width="60" height="100" rx="4" fill="#F4EDDF" stroke="#1A1814" stroke-width="2.5"/>
+            <line x1="20" y1="48" x2="80" y2="48" stroke="#1A1814" stroke-width="2.5"/>
+            <rect x="72" y="22" width="3" height="16" fill="#1A1814"/>
+            <rect x="72" y="60" width="3" height="34" fill="#1A1814"/>
+            <circle cx="30" cy="55" r="1.5" fill="#A0432B"/>
+            <circle cx="34" cy="55" r="1.5" fill="#A0432B"/>
+          </svg>
+          <span class="nano-tag">nano-banana → service-fridge</span>
+        </div>
+        <h3>Refrigerators &<br/>Freezers</h3>
+        <p>Not cooling, leaking, ice maker out, compressor trouble — we handle Sub-Zero, Viking, KitchenAid, GE, and every other badge on the door.</p>
+        <span class="arrow">Run it down →</span>
+      </article>
+
+      <!-- Service card 2: Dishwasher -->
+      <article class="service-card">
+        <span class="corner-mark">№ 02</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 100 120" aria-hidden="true">
+            <rect x="20" y="20" width="60" height="90" rx="3" fill="#F4EDDF" stroke="#1A1814" stroke-width="2.5"/>
+            <rect x="25" y="25" width="50" height="10" fill="none" stroke="#1A1814" stroke-width="1.5"/>
+            <line x1="30" y1="55" x2="70" y2="55" stroke="#A0432B" stroke-width="1.5"/>
+            <line x1="30" y1="75" x2="70" y2="75" stroke="#A0432B" stroke-width="1.5"/>
+            <line x1="30" y1="95" x2="70" y2="95" stroke="#A0432B" stroke-width="1.5"/>
+          </svg>
+          <span class="nano-tag">nano-banana → service-dishwasher</span>
+        </div>
+        <h3>Dishwashers</h3>
+        <p>Won't drain, won't start, leaving spots, or pooling water in the basin — diagnosed and fixed with factory-certified parts.</p>
+        <span class="arrow">Run it down →</span>
+      </article>
+
+      <!-- Service card 3: Range -->
+      <article class="service-card">
+        <span class="corner-mark">№ 03</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 100 120" aria-hidden="true">
+            <rect x="15" y="20" width="70" height="90" fill="#F4EDDF" stroke="#1A1814" stroke-width="2.5"/>
+            <circle cx="30" cy="35" r="6" fill="#1A1814"/>
+            <circle cx="50" cy="35" r="6" fill="#1A1814"/>
+            <circle cx="70" cy="35" r="6" fill="#1A1814"/>
+            <rect x="25" y="55" width="50" height="40" fill="none" stroke="#1A1814" stroke-width="1.5"/>
+            <line x1="30" y1="105" x2="70" y2="105" stroke="#1A1814" stroke-width="1.5"/>
+          </svg>
+          <span class="nano-tag">nano-banana → service-range</span>
+        </div>
+        <h3>Ovens, Ranges &amp; Cooktops</h3>
+        <p>Igniter trouble, uneven heat, broken element, induction faults — gas, electric, or induction, we know the inside.</p>
+        <span class="arrow">Run it down →</span>
+      </article>
+
+      <!-- Service card 4: Washer -->
+      <article class="service-card">
+        <span class="corner-mark">№ 04</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 100 120" aria-hidden="true">
+            <rect x="20" y="10" width="60" height="100" rx="3" fill="#F4EDDF" stroke="#1A1814" stroke-width="2.5"/>
+            <rect x="25" y="15" width="50" height="12" fill="none" stroke="#1A1814" stroke-width="1.5"/>
+            <circle cx="35" cy="22" r="2" fill="#A0432B"/>
+            <circle cx="45" cy="22" r="2" fill="#A0432B"/>
+            <circle cx="55" cy="22" r="2" fill="#A0432B"/>
+            <circle cx="50" cy="68" r="22" fill="none" stroke="#1A1814" stroke-width="2"/>
+            <circle cx="50" cy="68" r="14" fill="none" stroke="#1A1814" stroke-width="1.5"/>
+          </svg>
+          <span class="nano-tag">nano-banana → service-laundry</span>
+        </div>
+        <h3>Washing Machines</h3>
+        <p>Won't spin, leaks, drain pump trouble, error codes you can't decode — front-load or top-load, we fix it on the first visit.</p>
+        <span class="arrow">Run it down →</span>
+      </article>
+
+      <!-- Service card 5: Dryer -->
+      <article class="service-card">
+        <span class="corner-mark">№ 05</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 100 120" aria-hidden="true">
+            <rect x="20" y="10" width="60" height="100" rx="3" fill="#F4EDDF" stroke="#1A1814" stroke-width="2.5"/>
+            <rect x="25" y="15" width="50" height="12" fill="none" stroke="#1A1814" stroke-width="1.5"/>
+            <circle cx="35" cy="22" r="2" fill="#A0432B"/>
+            <circle cx="45" cy="22" r="2" fill="#A0432B"/>
+            <circle cx="55" cy="22" r="2" fill="#A0432B"/>
+            <circle cx="50" cy="68" r="22" fill="none" stroke="#1A1814" stroke-width="2"/>
+            <path d="M 38 64 Q 50 70 62 64" stroke="#A0432B" stroke-width="2" fill="none"/>
+            <path d="M 38 72 Q 50 78 62 72" stroke="#A0432B" stroke-width="2" fill="none"/>
+          </svg>
+          <span class="nano-tag">nano-banana → service-laundry</span>
+        </div>
+        <h3>Clothes Dryers</h3>
+        <p>No heat, takes two cycles, won't tumble, blower issues, vent restrictions — gas or electric, residential or commercial.</p>
+        <span class="arrow">Run it down →</span>
+      </article>
+
+      <!-- Service card 6: Microwave -->
+      <article class="service-card">
+        <span class="corner-mark">№ 06</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 100 120" aria-hidden="true">
+            <rect x="10" y="30" width="80" height="50" fill="#F4EDDF" stroke="#1A1814" stroke-width="2.5"/>
+            <rect x="15" y="35" width="50" height="40" fill="none" stroke="#1A1814" stroke-width="1.5"/>
+            <line x1="68" y1="40" x2="85" y2="40" stroke="#A0432B" stroke-width="1.5"/>
+            <line x1="68" y1="48" x2="85" y2="48" stroke="#A0432B" stroke-width="1.5"/>
+            <line x1="68" y1="56" x2="85" y2="56" stroke="#A0432B" stroke-width="1.5"/>
+            <rect x="68" y="62" width="17" height="10" fill="none" stroke="#1A1814" stroke-width="1"/>
+          </svg>
+          <span class="nano-tag">nano-banana → service-small</span>
+        </div>
+        <h3>Microwave Ovens</h3>
+        <p>Won't heat, sparking, turntable won't turn, door switch out — over-the-range, built-in, or countertop.</p>
+        <span class="arrow">Run it down →</span>
+      </article>
+
+      <!-- Service card 7: Trash Compactor -->
+      <article class="service-card">
+        <span class="corner-mark">№ 07</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 100 120" aria-hidden="true">
+            <rect x="22" y="20" width="56" height="90" fill="#F4EDDF" stroke="#1A1814" stroke-width="2.5"/>
+            <rect x="28" y="28" width="44" height="74" fill="none" stroke="#1A1814" stroke-width="1.5"/>
+            <line x1="28" y1="50" x2="72" y2="50" stroke="#A0432B" stroke-width="2"/>
+            <path d="M 38 70 L 50 60 L 62 70" stroke="#1A1814" stroke-width="2" fill="none"/>
+            <path d="M 38 84 L 50 74 L 62 84" stroke="#1A1814" stroke-width="2" fill="none"/>
+          </svg>
+          <span class="nano-tag">nano-banana → service-small</span>
+        </div>
+        <h3>Trash Compactors</h3>
+        <p>Won't compact, jammed motor, drawer off-track — the one nobody else wants to touch, we do.</p>
+        <span class="arrow">Run it down →</span>
+      </article>
+
+      <!-- Service card 8: Garbage Disposal -->
+      <article class="service-card">
+        <span class="corner-mark">№ 08</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 100 120" aria-hidden="true">
+            <ellipse cx="50" cy="30" rx="32" ry="8" fill="#F4EDDF" stroke="#1A1814" stroke-width="2.5"/>
+            <rect x="30" y="30" width="40" height="55" fill="#F4EDDF" stroke="#1A1814" stroke-width="2.5"/>
+            <ellipse cx="50" cy="85" rx="20" ry="6" fill="#F4EDDF" stroke="#1A1814" stroke-width="2.5"/>
+            <line x1="36" y1="45" x2="64" y2="45" stroke="#A0432B" stroke-width="1.5"/>
+            <line x1="36" y1="55" x2="64" y2="55" stroke="#A0432B" stroke-width="1.5"/>
+            <line x1="36" y1="65" x2="64" y2="65" stroke="#A0432B" stroke-width="1.5"/>
+            <line x1="36" y1="75" x2="64" y2="75" stroke="#A0432B" stroke-width="1.5"/>
+            <rect x="45" y="92" width="10" height="14" fill="#1A1814"/>
+          </svg>
+          <span class="nano-tag">nano-banana → service-small</span>
+        </div>
+        <h3>Garbage Disposals</h3>
+        <p>Humming but not spinning, jammed, leaking, ready for replacement — we'll have it running before lunch.</p>
+        <span class="arrow">Run it down →</span>
+      </article>
+
+      <!-- Service card 9: Wall Oven -->
+      <article class="service-card">
+        <span class="corner-mark">№ 09</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 100 120" aria-hidden="true">
+            <rect x="18" y="20" width="64" height="90" fill="#F4EDDF" stroke="#1A1814" stroke-width="2.5"/>
+            <rect x="22" y="25" width="56" height="8" fill="#1A1814"/>
+            <rect x="22" y="38" width="56" height="68" fill="none" stroke="#1A1814" stroke-width="1.5"/>
+            <line x1="22" y1="72" x2="78" y2="72" stroke="#1A1814" stroke-width="1.5"/>
+            <circle cx="50" cy="55" r="3" fill="#A0432B"/>
+            <rect x="46" y="80" width="8" height="12" fill="#1A1814"/>
+          </svg>
+          <span class="nano-tag">nano-banana → service-range</span>
+        </div>
+        <h3>Wall Ovens</h3>
+        <p>Won't preheat, broiler dead, door seal gone, control board fault — single, double, or steam ovens, all brands.</p>
+        <span class="arrow">Run it down →</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WANTED-POSTER PRICING HOOK
+     ============================================================ -->
+<section class="wanted-section">
+  <div class="container">
+    <div class="wanted-poster" role="region" aria-label="Service call pricing offer">
+      <div class="wanted-eyebrow">★ Wanted ★ In Every Kitchen ★</div>
+      <h2 class="wanted-head">Broken<br/>Appliances</h2>
+      <p class="wanted-sub">No appliance is safe when the Outlaw rides through town.</p>
+
+      <div class="reward-block">
+        <span class="reward">$49</span>
+        <span class="reward-label">Service Call —<br/>Fully Waived<br/>If We Can't Fix It</span>
+      </div>
+
+      <p class="fineprint">
+        Diagnose your appliance for a flat $49. If we can't put it back in working order on the first visit, the service call's on us. Every repair backed by a one-year warranty and factory-certified parts. <em>That's the rule of the Outlaw.</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT / MEET JESSE
+     ============================================================ -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-portrait" aria-label="Portrait of Jesse, owner of Outlaw Appliance Repair">
+      <!-- Placeholder badge for nano-banana hero-secondary-badge / about-jesse-badge -->
+      <svg viewBox="0 0 400 400" aria-hidden="true">
+        <!-- frame -->
+        <circle cx="200" cy="200" r="196" fill="#F4EDDF" stroke="#1A1814" stroke-width="3"/>
+        <circle cx="200" cy="200" r="186" fill="none" stroke="#1A1814" stroke-width="1.5"/>
+        <!-- rust ring -->
+        <circle cx="200" cy="200" r="176" fill="#A0432B"/>
+        <circle cx="200" cy="200" r="162" fill="none" stroke="#F4EDDF" stroke-width="1.5"/>
+        <defs>
+          <path id="proprietorTop" d="M 50,200 a 150,150 0 0 1 300,0" />
+          <path id="proprietorBottom" d="M 60,200 a 140,140 0 0 0 280,0" />
+        </defs>
+        <text font-family="Alfa Slab One" font-size="22" letter-spacing="5" fill="#F4EDDF">
+          <textPath href="#proprietorTop" startOffset="50%" text-anchor="middle">★ JESSE — PROPRIETOR ★</textPath>
+        </text>
+        <text font-family="Alfa Slab One" font-size="18" letter-spacing="4" fill="#F4EDDF">
+          <textPath href="#proprietorBottom" startOffset="50%" text-anchor="middle">EST. SAN DIEGO • CA</textPath>
+        </text>
+        <!-- inner cream disc -->
+        <circle cx="200" cy="200" r="128" fill="#F4EDDF" stroke="#1A1814" stroke-width="1.5"/>
+        <!-- stylized portrait silhouette (placeholder until nano-banana) -->
+        <g transform="translate(200 215)">
+          <!-- shoulders/collar -->
+          <path d="M -70 80 Q -70 30 -50 20 L -20 8 Q 0 -2 20 8 L 50 20 Q 70 30 70 80 Z" fill="#1A1814"/>
+          <!-- neck -->
+          <rect x="-12" y="-20" width="24" height="32" fill="#C9A87C"/>
+          <!-- head -->
+          <ellipse cx="0" cy="-55" rx="42" ry="52" fill="#D9B68A"/>
+          <!-- hair -->
+          <path d="M -42 -78 Q -38 -110 0 -108 Q 38 -110 42 -78 Q 38 -68 28 -65 Q 0 -75 -28 -65 Q -38 -68 -42 -78 Z" fill="#1A1814"/>
+          <!-- subtle features -->
+          <circle cx="-14" cy="-58" r="2.5" fill="#1A1814"/>
+          <circle cx="14" cy="-58" r="2.5" fill="#1A1814"/>
+          <path d="M -10 -40 Q 0 -34 10 -40" stroke="#1A1814" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- collar tie -->
+          <path d="M -8 8 L 0 24 L 8 8 Z" fill="#A0432B"/>
+        </g>
+        <!-- corner ornaments -->
+        <text x="200" y="48" text-anchor="middle" font-family="Alfa Slab One" font-size="14" fill="#1A1814">★</text>
+        <text x="200" y="362" text-anchor="middle" font-family="Alfa Slab One" font-size="14" fill="#1A1814">★</text>
+      </svg>
+      <div class="nano-caption">nano-banana 2 → about-jesse-badge.avif</div>
+    </div>
+
+    <div class="about-text">
+      <div class="eyebrow">Meet The Outlaw</div>
+      <h2>Twenty Years On The <span class="accent">Workbench.</span></h2>
+      <p>Jesse runs Outlaw the way his old man ran a service truck — show up when you say you will, fix it once, charge a fair price, and back your work with your name.</p>
+      <p>Factory-trained on every major brand. Licensed by the State of California. One year of warranty on every repair, every part, every time. No tricks, no upsells, no smoke and mirrors. Just an honest day's work and a kitchen that runs again before dinner.</p>
+
+      <div class="credentials-row">
+        <div class="credential">
+          <div class="label">CA License</div>
+          <div class="value">A49881</div>
+        </div>
+        <div class="credential">
+          <div class="label">Warranty</div>
+          <div class="value">1 Year</div>
+        </div>
+        <div class="credential">
+          <div class="label">Training</div>
+          <div class="value">Factory-Cert.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+     ============================================================ -->
+<section class="testimonials" id="reviews">
+  <div class="container">
+    <header class="section-head">
+      <div class="eyebrow">Word On The Street</div>
+      <h2>What San Diego <span class="accent">Says.</span></h2>
+    </header>
+
+    <div class="testimonials-grid">
+      <article class="tcard">
+        <div class="stars" aria-label="5 of 5 stars">★★★★★</div>
+        <blockquote>"Jesse showed up on time. Professional and personal. He was able to perform repairs without it costing a fortune."</blockquote>
+        <cite>Josie C. <span class="where">San Diego, CA</span></cite>
+      </article>
+      <article class="tcard">
+        <div class="stars" aria-label="5 of 5 stars">★★★★★</div>
+        <blockquote>"Jesse showed up as promised. Professional, efficient, and even sympathetic."</blockquote>
+        <cite>Eva T. <span class="where">San Diego, CA</span></cite>
+      </article>
+      <article class="tcard">
+        <div class="stars" aria-label="5 of 5 stars">★★★★★</div>
+        <blockquote>"Great experience. Work was done quickly and smoothly. Highly recommend for quality and timely service."</blockquote>
+        <cite>Andrea M. <span class="where">San Diego, CA</span></cite>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICE AREA TEASER — RANCHO SANTA FE FEATURED
+     ============================================================ -->
+<section class="area" id="area">
+  <div class="container area-grid">
+    <div class="area-text">
+      <div class="eyebrow">Riding Through The County</div>
+      <h2>San Diego, <span class="accent">End To End.</span></h2>
+      <p>From the coast to the back-country, from La Jolla estates to El Cajon kitchens — the Outlaw rolls a fully-stocked truck through every ZIP in the county.</p>
+
+      <div class="area-plates" aria-label="Cities served">
+        <div class="plate"><span class="state">CA</span><span class="number">La Jolla</span></div>
+        <div class="plate"><span class="state">CA</span><span class="number">Del Mar</span></div>
+        <div class="plate"><span class="state">CA</span><span class="number">Carmel Vly</span></div>
+        <div class="plate"><span class="state">CA</span><span class="number">Encinitas</span></div>
+        <div class="plate"><span class="state">CA</span><span class="number">Coronado</span></div>
+        <div class="plate"><span class="state">CA</span><span class="number">Point Loma</span></div>
+        <div class="plate"><span class="state">CA</span><span class="number">Poway</span></div>
+        <div class="plate"><span class="state">CA</span><span class="number">Chula Vista</span></div>
+      </div>
+    </div>
+
+    <aside class="featured-area">
+      <div class="eyebrow">Now Posted Up In</div>
+      <h3>Rancho Santa Fe</h3>
+      <p>The county's quietest ZIP code calls for the loudest specialists. Built-in refrigeration, professional ranges, integrated dishwashers — we know the brands behind every cabinet door in 92067.</p>
+      <div class="brands">
+        <span>Sub-Zero</span>
+        <span>Wolf</span>
+        <span>Viking</span>
+        <span>Thermador</span>
+        <span>Miele</span>
+        <span>Gaggenau</span>
+      </div>
+      <a href="#" class="area-cta">See Rancho Santa Fe →</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+     ============================================================ -->
+<section class="final-cta" id="contact">
+  <div class="container">
+    <div class="eyebrow">Ready When You Are</div>
+    <h2>Put That Appliance<br/>Back In Business.</h2>
+    <a href="tel:+16198883136" class="phone-huge">(619) 888-3136</a>
+    <p class="small">Or send a message — same-day callback during business hours. We service all of San Diego County.</p>
+    <div class="cta-row">
+      <a href="tel:+16198883136" class="btn-primary">Call Jesse Now</a>
+      <a href="#" class="btn-ghost">Send a Message</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <!-- Small badge -->
+        <svg class="badge-mini" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="48" fill="#F4EDDF" stroke="#1A1814" stroke-width="2"/>
+          <circle cx="50" cy="50" r="42" fill="#A0432B"/>
+          <text x="50" y="42" text-anchor="middle" font-family="Alfa Slab One" font-size="8" fill="#F4EDDF" letter-spacing="1">OUTLAW</text>
+          <text x="50" y="55" text-anchor="middle" font-family="Alfa Slab One" font-size="6" fill="#F4EDDF" letter-spacing="0.5">APPLIANCE</text>
+          <text x="50" y="68" text-anchor="middle" font-family="Alfa Slab One" font-size="10" fill="#E8B948">★</text>
+          <text x="50" y="80" text-anchor="middle" font-family="Alfa Slab One" font-size="5" fill="#F4EDDF" letter-spacing="1">SAN DIEGO</text>
+        </svg>
+        <div class="brand-wordmark"><span class="rust-word">OUTLAW</span> APPLIANCE</div>
+        <p>San Diego's factory-trained appliance repair crew. Where expertise meets reliability.</p>
+        <div class="plate" style="align-self: flex-start;">
+          <span class="state">California</span>
+          <span class="number" style="font-size: 0.95em;">A49881</span>
+        </div>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Refrigerator Repair</a></li>
+          <li><a href="#">Dishwasher Repair</a></li>
+          <li><a href="#">Washer Repair</a></li>
+          <li><a href="#">Dryer Repair</a></li>
+          <li><a href="#">Oven &amp; Range Repair</a></li>
+          <li><a href="#">All 9 Services →</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Service Area</h4>
+        <ul>
+          <li><a href="#">Rancho Santa Fe</a></li>
+          <li><a href="#">La Jolla</a></li>
+          <li><a href="#">Del Mar</a></li>
+          <li><a href="#">Carmel Valley</a></li>
+          <li><a href="#">All San Diego County →</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+16198883136">(619) 888-3136</a></li>
+          <li><a href="mailto:jesse@outlawappliancerepair.com">jesse@outlawappliancerepair.com</a></li>
+          <li>San Diego, CA</li>
+          <li>Mon–Sat · 7am–7pm</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Outlaw Appliance Repair · Lic. A49881 · Family Owned</div>
+      <div>★ Where Expertise Meets Reliability ★</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
