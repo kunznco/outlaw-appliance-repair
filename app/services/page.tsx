@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { Eyebrow } from "@/components/western";
 import { ServiceIcon } from "@/components/service-icon";
 import { site } from "@/lib/site";
-import { servicePages } from "@/lib/services-content";
+import { servicePages, serviceImages } from "@/lib/services-content";
 
 export const metadata: Metadata = {
   title: "Appliance Repair Services in San Diego | Outlaw Appliance Repair",
@@ -45,8 +46,18 @@ export default function ServicesHub() {
                 href={`/services/${s.urlSlug}`}
                 className="group bg-paper border border-line rounded-xl p-5 flex flex-col gap-3 transition-shadow hover:shadow-[var(--shadow-soft-lg)]"
               >
-                <div className="aspect-[5/3] bg-cream rounded-lg border border-line flex items-center justify-center">
-                  <ServiceIcon slug={s.slug} className="w-1/2 h-1/2" />
+                <div className="relative aspect-[5/3] bg-cream rounded-lg border border-line overflow-hidden flex items-center justify-center">
+                  {serviceImages[s.slug] ? (
+                    <Image
+                      src={serviceImages[s.slug]!}
+                      alt={`${s.name} repair in San Diego`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  ) : (
+                    <ServiceIcon slug={s.slug} className="w-1/2 h-1/2" />
+                  )}
                 </div>
                 <h2
                   className="text-ink leading-tight"

@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { services } from "@/lib/site";
-import { servicePages } from "@/lib/services-content";
+import { servicePages, serviceImages } from "@/lib/services-content";
 import { ServiceIcon } from "@/components/service-icon";
 import { Eyebrow } from "@/components/western";
 
@@ -33,8 +34,18 @@ export function ServicesGrid() {
               href={`/services/${urlBySlug[service.slug]}`}
               className="group bg-paper border border-line rounded-xl p-5 flex flex-col gap-3 transition-shadow hover:shadow-[var(--shadow-soft-lg)]"
             >
-              <div className="aspect-[5/3] bg-cream rounded-lg border border-line flex items-center justify-center">
-                <ServiceIcon slug={service.slug} className="w-1/2 h-1/2" />
+              <div className="relative aspect-[5/3] bg-cream rounded-lg border border-line overflow-hidden flex items-center justify-center">
+                {serviceImages[service.slug] ? (
+                  <Image
+                    src={serviceImages[service.slug]!}
+                    alt={`${service.title} repair in San Diego`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <ServiceIcon slug={service.slug} className="w-1/2 h-1/2" />
+                )}
               </div>
               <h3
                 className="text-ink leading-tight"

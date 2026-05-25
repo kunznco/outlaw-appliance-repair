@@ -320,6 +320,19 @@ export const servicePages: ServicePageContent[] = [
   },
 ];
 
+/**
+ * Real photos per appliance (from Jesse's own site — safe to use).
+ * Appliances without a photo fall back to the inline SVG ServiceIcon.
+ */
+export const serviceImages: Partial<Record<ServiceSlug, string>> = {
+  refrigerator: "/images/kitchen-bright.webp",
+  dishwasher: "/images/dishwasher.webp",
+  range: "/images/range-kitchen.webp",
+  washer: "/images/washer-dryer.webp",
+  dryer: "/images/washer-dryer.webp",
+  // microwave, garbage-disposal, ice-maker: pending clean photos
+};
+
 export function getServicePage(urlSlug: string): ServicePageContent | undefined {
   return servicePages.find((s) => s.urlSlug === urlSlug);
 }

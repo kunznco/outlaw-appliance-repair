@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { Eyebrow } from "@/components/western";
 import { ServiceIcon } from "@/components/service-icon";
 import { site } from "@/lib/site";
-import { servicePages, getServicePage } from "@/lib/services-content";
+import { servicePages, serviceImages, getServicePage } from "@/lib/services-content";
 
 export function generateStaticParams() {
   return servicePages.map((s) => ({ slug: s.urlSlug }));
@@ -89,10 +90,26 @@ export default async function ServicePage({
                 Flat <span className="text-rust font-semibold">${site.serviceCallPrice}</span> diagnosis · waived when we make the fix · {site.warranty} parts &amp; labor warranty
               </p>
             </div>
-            <div className="hidden lg:flex justify-center">
-              <div className="w-56 h-56 rounded-2xl bg-cream border border-line flex items-center justify-center">
-                <ServiceIcon slug={page.slug} className="w-2/5 h-2/5" />
-              </div>
+            <div className="hidden lg:block">
+              {serviceImages[page.slug] ? (
+                <div
+                  className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-line"
+                  style={{ boxShadow: "var(--shadow-soft)" }}
+                >
+                  <Image
+                    src={serviceImages[page.slug]!}
+                    alt={page.h1}
+                    fill
+                    sizes="40vw"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              ) : (
+                <div className="w-56 h-56 mx-auto rounded-2xl bg-cream border border-line flex items-center justify-center">
+                  <ServiceIcon slug={page.slug} className="w-2/5 h-2/5" />
+                </div>
+              )}
             </div>
           </div>
         </section>
