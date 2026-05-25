@@ -325,7 +325,7 @@ export const servicePages: ServicePageContent[] = [
  * Appliances without a photo fall back to the inline SVG ServiceIcon.
  */
 export const serviceImages: Partial<Record<ServiceSlug, string>> = {
-  refrigerator: "/images/kitchen-bright.webp",
+  refrigerator: "/images/refrigerator.webp",
   dishwasher: "/images/dishwasher.webp",
   range: "/images/range-kitchen.webp",
   washer: "/images/washer-dryer.webp",
