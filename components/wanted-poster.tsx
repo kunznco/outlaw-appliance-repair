@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import { Eyebrow, Sunburst } from "@/components/western";
 
 /**
  * Pricing callout — honest, flat diagnosis fee. Clean card, no western
@@ -12,7 +13,7 @@ export function WantedPoster() {
           className="max-w-[680px] mx-auto bg-paper border border-line rounded-2xl p-8 sm:p-12 text-center"
           style={{ boxShadow: "var(--shadow-soft)" }}
         >
-          <div className="eyebrow mb-4 justify-center">Honest, Upfront Pricing</div>
+          <Eyebrow className="mb-4 justify-center">Honest, Upfront Pricing</Eyebrow>
           <h2
             className="display text-ink mb-3"
             style={{ fontSize: "clamp(1.9rem, 4vw, 2.6rem)" }}
@@ -25,16 +26,19 @@ export function WantedPoster() {
           </p>
 
           <div className="flex items-center justify-center gap-5 flex-wrap py-6 border-y border-line">
-            <span
-              className="text-rust leading-none"
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 800,
-                fontSize: "clamp(3rem, 8vw, 4.2rem)",
-                letterSpacing: "-0.03em",
-              }}
-            >
-              ${site.serviceCallPrice}
+            <span className="relative inline-flex items-center justify-center leading-none">
+              <Sunburst className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] pointer-events-none" />
+              <span
+                className="relative text-rust leading-none"
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 800,
+                  fontSize: "clamp(3rem, 8vw, 4.2rem)",
+                  letterSpacing: "-0.03em",
+                }}
+              >
+                ${site.serviceCallPrice}
+              </span>
             </span>
             <span className="text-left max-w-[18ch] text-ink leading-snug" style={{ fontWeight: 600 }}>
               service call —{" "}

@@ -1,12 +1,13 @@
 import { services } from "@/lib/site";
 import { ServiceIcon } from "@/components/service-icon";
+import { Eyebrow } from "@/components/western";
 
 export function ServicesGrid() {
   return (
     <section id="services" className="py-20 sm:py-24 bg-cream/40">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
         <header className="text-center mb-14 max-w-[640px] mx-auto">
-          <div className="eyebrow mb-3 justify-center">What We Fix</div>
+          <Eyebrow className="mb-3 justify-center">What We Fix</Eyebrow>
           <h2
             className="display text-ink"
             style={{ fontSize: "clamp(2rem, 4.5vw, 3rem)" }}

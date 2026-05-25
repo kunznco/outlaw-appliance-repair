@@ -1,4 +1,5 @@
 import { Logo } from "@/components/logo";
+import { Eyebrow } from "@/components/western";
 import { site } from "@/lib/site";
 
 export function About() {
@@ -27,7 +28,7 @@ export function About() {
           </div>
 
           <div>
-            <div className="eyebrow mb-3">Meet {site.owner}</div>
+            <Eyebrow className="mb-3">Meet {site.owner}</Eyebrow>
             <h2
               className="display text-ink mb-5"
               style={{ fontSize: "clamp(2rem, 4.5vw, 3rem)" }}

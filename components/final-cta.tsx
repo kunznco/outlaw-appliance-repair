@@ -1,10 +1,11 @@
 import { site } from "@/lib/site";
+import { Eyebrow } from "@/components/western";
 
 export function FinalCta() {
   return (
     <section id="contact" className="py-20 sm:py-24 text-center">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-        <div className="eyebrow mb-3 justify-center">Ready When You Are</div>
+        <Eyebrow className="mb-3 justify-center">Ready When You Are</Eyebrow>
         <h2
           className="display text-ink mb-3"
           style={{ fontSize: "clamp(2rem, 4.5vw, 3rem)" }}

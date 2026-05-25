@@ -1,5 +1,6 @@
 import { Logo } from "@/components/logo";
 import { LicensePlate } from "@/components/license-plate";
+import { SkullMark } from "@/components/western";
 import { site, services, serviceAreas } from "@/lib/site";
 
 export function SiteFooter() {
@@ -58,7 +59,10 @@ export function SiteFooter() {
           <div>
             © {new Date().getFullYear()} {site.name} · Lic. {site.license} · Family Owned
           </div>
-          <div>{site.tagline}</div>
+          <div className="inline-flex items-center gap-2">
+            <SkullMark className="w-4 h-2.5 text-rust/70" />
+            {site.tagline}
+          </div>
         </div>
       </div>
     </footer>

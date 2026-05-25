@@ -1,4 +1,5 @@
 import { serviceAreas, site } from "@/lib/site";
+import { Eyebrow } from "@/components/western";
 
 export function ServiceArea() {
   return (
@@ -6,7 +7,7 @@ export function ServiceArea() {
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
-            <div className="eyebrow mb-3">Serving the Whole County</div>
+            <Eyebrow className="mb-3">Serving the Whole County</Eyebrow>
             <h2
               className="display text-ink mb-4"
               style={{ fontSize: "clamp(2rem, 4.5vw, 3rem)" }}
@@ -36,7 +37,7 @@ export function ServiceArea() {
             className="bg-paper border border-line rounded-2xl p-7 sm:p-8"
             style={{ boxShadow: "var(--shadow-soft)" }}
           >
-            <div className="eyebrow mb-3">Featured Service Area</div>
+            <Eyebrow className="mb-3">Featured Service Area</Eyebrow>
             <h3
               className="display text-ink mb-3"
               style={{ fontSize: "1.7rem" }}

@@ -1,11 +1,13 @@
 import { testimonials } from "@/lib/site";
+import { Eyebrow, StitchDivider } from "@/components/western";
 
 export function Testimonials() {
   return (
     <section id="reviews" className="py-20 sm:py-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
+        <StitchDivider className="mb-10" />
         <header className="text-center mb-12">
-          <div className="eyebrow mb-3 justify-center">From Our Neighbors</div>
+          <Eyebrow className="mb-3 justify-center">From Our Neighbors</Eyebrow>
           <h2 className="display text-ink" style={{ fontSize: "clamp(2rem, 4.5vw, 3rem)" }}>
             What San Diego says.
           </h2>

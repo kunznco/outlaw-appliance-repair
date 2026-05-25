@@ -1,4 +1,5 @@
 import { Logo } from "@/components/logo";
+import { SkullMark } from "@/components/western";
 import { site } from "@/lib/site";
 
 export function Hero() {
@@ -17,7 +18,7 @@ export function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              <span aria-hidden className="inline-block w-1.5 h-1.5 rounded-full bg-rust" />
+              <SkullMark className="w-5 h-[0.8rem] text-rust shrink-0" />
               Family-Owned · {site.city} County
             </div>
 
