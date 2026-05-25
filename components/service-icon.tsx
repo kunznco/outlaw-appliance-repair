@@ -86,16 +86,6 @@ export function ServiceIcon({ slug, className }: ServiceIconProps) {
           <rect x="68" y="62" width="17" height="10" fill="none" stroke="#1A1814" strokeWidth="1" />
         </svg>
       );
-    case "trash-compactor":
-      return (
-        <svg {...common}>
-          <rect x="22" y="20" width="56" height="90" fill="#F4EDDF" stroke="#1A1814" strokeWidth="2.5" />
-          <rect x="28" y="28" width="44" height="74" fill="none" stroke="#1A1814" strokeWidth="1.5" />
-          <line x1="28" y1="50" x2="72" y2="50" stroke="#A0432B" strokeWidth="2" />
-          <path d="M 38 70 L 50 60 L 62 70" stroke="#1A1814" strokeWidth="2" fill="none" />
-          <path d="M 38 84 L 50 74 L 62 84" stroke="#1A1814" strokeWidth="2" fill="none" />
-        </svg>
-      );
     case "garbage-disposal":
       return (
         <svg {...common}>
@@ -109,15 +99,16 @@ export function ServiceIcon({ slug, className }: ServiceIconProps) {
           <rect x="45" y="92" width="10" height="14" fill="#1A1814" />
         </svg>
       );
-    case "wall-oven":
+    case "ice-maker":
       return (
         <svg {...common}>
-          <rect x="18" y="20" width="64" height="90" fill="#F4EDDF" stroke="#1A1814" strokeWidth="2.5" />
-          <rect x="22" y="25" width="56" height="8" fill="#1A1814" />
-          <rect x="22" y="38" width="56" height="68" fill="none" stroke="#1A1814" strokeWidth="1.5" />
-          <line x1="22" y1="72" x2="78" y2="72" stroke="#1A1814" strokeWidth="1.5" />
-          <circle cx="50" cy="55" r="3" fill="#A0432B" />
-          <rect x="46" y="80" width="8" height="12" fill="#1A1814" />
+          <rect x="22" y="16" width="56" height="94" rx="4" fill="#F4EDDF" stroke="#1A1814" strokeWidth="2.5" />
+          <rect x="28" y="22" width="44" height="20" fill="none" stroke="#1A1814" strokeWidth="1.5" />
+          {/* ice cubes */}
+          <rect x="34" y="58" width="14" height="14" rx="2" fill="none" stroke="#A0432B" strokeWidth="2" />
+          <rect x="52" y="58" width="14" height="14" rx="2" fill="none" stroke="#A0432B" strokeWidth="2" />
+          <rect x="43" y="78" width="14" height="14" rx="2" fill="none" stroke="#A0432B" strokeWidth="2" />
+          <rect x="44" y="100" width="12" height="8" fill="#1A1814" />
         </svg>
       );
   }

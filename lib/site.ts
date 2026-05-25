@@ -10,7 +10,7 @@ export const site = {
   ownerRole: "Proprietor",
   tagline: "Where Expertise Meets Reliability",
   description:
-    "Licensed San Diego appliance repair. Nine appliance types, factory-certified parts, one-year warranty on every job. Call (619) 888-3136.",
+    "Licensed San Diego appliance repair. Refrigerators, ranges, washers, dryers, dishwashers and more — factory-certified parts, one-year warranty on every job. Call (858) 757-8977.",
   keywords: [
     "appliance repair San Diego",
     "refrigerator repair San Diego",
@@ -28,8 +28,8 @@ export const site = {
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
     "https://outlaw-appliance-repair.vercel.app",
-  phone: "(619) 888-3136",
-  phoneRaw: "+16198883136",
+  phone: "(858) 757-8977",
+  phoneRaw: "+18587578977",
   email: "jesse@outlawappliancerepair.com",
   city: "San Diego",
   state: "CA",
@@ -46,9 +46,8 @@ export type ServiceSlug =
   | "washer"
   | "dryer"
   | "microwave"
-  | "trash-compactor"
   | "garbage-disposal"
-  | "wall-oven";
+  | "ice-maker";
 
 export interface Service {
   slug: ServiceSlug;
@@ -108,28 +107,20 @@ export const services: Service[] = [
       "Won't heat, sparking, turntable won't turn, door switch out — over-the-range, built-in, or countertop.",
   },
   {
-    slug: "trash-compactor",
-    number: "07",
-    title: "Trash Compactors",
-    short: "Compact, jam, track",
-    blurb:
-      "Won't compact, jammed motor, drawer off-track — the one nobody else wants to touch, we do.",
-  },
-  {
     slug: "garbage-disposal",
-    number: "08",
+    number: "07",
     title: "Garbage Disposals",
-    short: "Hum, jam, replace",
+    short: "Hum, jam, leak",
     blurb:
-      "Humming but not spinning, jammed, leaking, ready for replacement — we'll have it running before lunch.",
+      "Humming but not spinning, jammed, leaking, or ready for replacement — we'll have it running again fast.",
   },
   {
-    slug: "wall-oven",
-    number: "09",
-    title: "Wall Ovens",
-    short: "Preheat, broil, seal",
+    slug: "ice-maker",
+    number: "08",
+    title: "Ice Makers",
+    short: "No ice, leaks, cubes",
     blurb:
-      "Won't preheat, broiler dead, door seal gone, control board fault — single, double, or steam ovens, all brands.",
+      "Not making ice, leaking water, or turning out hollow or undersized cubes — stand-alone, built-in, and in-fridge ice makers.",
   },
 ];
 
