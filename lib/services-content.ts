@@ -330,7 +330,8 @@ export const serviceImages: Partial<Record<ServiceSlug, string>> = {
   range: "/images/range-kitchen.webp",
   washer: "/images/washer-dryer.webp",
   dryer: "/images/washer-dryer.webp",
-  // microwave, garbage-disposal, ice-maker: pending clean photos
+  "ice-maker": "/images/ice-maker.webp",
+  // microwave, garbage-disposal: kept on SVG icons (only branded stock found)
 };
 
 export function getServicePage(urlSlug: string): ServicePageContent | undefined {
