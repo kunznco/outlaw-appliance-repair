@@ -2,45 +2,48 @@
 
 /* ============================================================
    OUTLAW APPLIANCE REPAIR — design tokens
-   Palette: vintage Americana / outlaw western
-   Type system: Alfa Slab One (display) + Fraunces (body)
+   Direction: clean, trustworthy appliance-repair site with a bold
+   western LOGO. Personality lives in the mark; the chrome stays
+   professional (ref: straightshooter.ac). Single clean grotesque.
    ============================================================ */
 
 @theme {
-  /* Palette */
-  --color-cream: #F4EDDF;
-  --color-cream-soft: #EEE5D2;
+  /* Palette — warm but restrained; rust is the single accent */
+  --color-bg: #F8F4EB;        /* light warm base */
+  --color-cream: #F4EDDF;     /* warm accent panel */
+  --color-cream-soft: #EFE8D9;
   --color-cream-deep: #E5D8BD;
-  --color-paper: #FBF6E9;
-  --color-ink: #1A1814;
-  --color-ink-soft: #2C2620;
-  --color-rust: #A0432B;
+  --color-paper: #FFFFFF;     /* crisp card surface */
+  --color-ink: #1F1B16;       /* near-black text */
+  --color-ink-soft: #5A5247;  /* muted body / labels */
+  --color-line: #E2D8C4;      /* subtle hairline border */
+  --color-rust: #A0432B;      /* single accent */
   --color-rust-deep: #842F1A;
   --color-rust-soft: #B85838;
-  --color-plate: #E8B948;
+  --color-plate: #E8B948;     /* used sparingly — license plate nod only */
   --color-plate-deep: #C99A2C;
   --color-teal-disc: #2F5C6E;
 
-  /* Font families wired from next/font in layout.tsx */
-  --font-display: var(--font-alfa-slab), "Times New Roman", serif;
-  --font-body: var(--font-fraunces), Georgia, serif;
+  /* One clean family for everything. Logo art carries the western type. */
+  --font-display: var(--font-hanken), system-ui, sans-serif;
+  --font-body: var(--font-hanken), system-ui, sans-serif;
 
-  /* Shadows */
-  --shadow-stamp: 4px 4px 0 var(--color-ink);
-  --shadow-stamp-lg: 6px 6px 0 var(--color-ink);
+  /* Soft, modern shadows (no hard western "stamp" offsets) */
+  --shadow-soft: 0 1px 2px rgba(31, 27, 22, 0.06), 0 6px 18px -6px rgba(31, 27, 22, 0.12);
+  --shadow-soft-lg: 0 2px 6px rgba(31, 27, 22, 0.08), 0 18px 36px -12px rgba(31, 27, 22, 0.16);
 }
 
 /* ---------- Reset ---------- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--color-cream);
+  background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-body);
-  font-optical-sizing: auto;
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 a { color: inherit; text-decoration: none; }
 img, svg { display: block; max-width: 100%; }
@@ -48,106 +51,99 @@ img, svg { display: block; max-width: 100%; }
 /* ---------- Reusable atoms ---------- */
 .eyebrow {
   font-family: var(--font-display);
-  font-size: 0.78rem;
-  letter-spacing: 0.18em;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-rust);
   display: inline-flex;
   align-items: center;
-  gap: 0.6em;
-}
-.eyebrow::before, .eyebrow::after {
-  content: "★";
-  color: var(--color-rust);
-  font-size: 0.9em;
+  gap: 0.5em;
 }
 
+/* Headlines: bold clean sans, title case (no all-caps slab shouting) */
 .display {
   font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
 }
 
 /* ---------- Buttons (CTA) ---------- */
 .btn-primary, .btn-ghost {
   font-family: var(--font-display);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 1rem 1.5rem;
-  border: 2px solid var(--color-ink);
-  box-shadow: var(--shadow-stamp);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  padding: 0.85rem 1.4rem;
+  border-radius: 10px;
   font-size: 1rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.55rem;
   cursor: pointer;
+  transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
 }
-.btn-primary { background: var(--color-rust); color: var(--color-cream); }
-.btn-ghost { background: var(--color-cream); color: var(--color-ink); }
-.btn-primary:hover, .btn-ghost:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-stamp-lg);
+.btn-primary {
+  background: var(--color-rust);
+  color: #fff;
+  border: 1px solid var(--color-rust-deep);
+  box-shadow: var(--shadow-soft);
+}
+.btn-primary:hover {
+  background: var(--color-rust-deep);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft-lg);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-ink);
+}
+.btn-ghost:hover {
+  background: var(--color-ink);
+  color: var(--color-bg);
+  transform: translateY(-1px);
 }
 
-/* ---------- License plate atom ---------- */
+/* ---------- License plate atom — kept as a small brand nod ---------- */
 .plate {
   background: var(--color-plate);
-  border: 3px solid var(--color-ink);
-  border-radius: 8px;
-  padding: 0.4rem 1.4rem 0.5rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 7px;
+  padding: 0.3rem 0.9rem 0.35rem;
   font-family: var(--font-display);
+  font-weight: 700;
   text-transform: uppercase;
   color: var(--color-ink);
-  box-shadow: 3px 3px 0 var(--color-ink);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-}
-.plate::before, .plate::after {
-  content: "";
-  width: 6px; height: 6px;
-  background: var(--color-ink);
-  border-radius: 50%;
-  flex-shrink: 0;
+  gap: 0.45rem;
 }
 .plate .state {
   font-size: 0.55em;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   line-height: 1;
-  padding-right: 0.6rem;
+  padding-right: 0.5rem;
   border-right: 1px solid var(--color-ink);
 }
 .plate .number {
-  font-size: 1.4em;
-  letter-spacing: 0.06em;
+  font-size: 1.25em;
+  letter-spacing: 0.04em;
   line-height: 1;
 }
 
-/* ---------- Animation: rise on load ---------- */
+/* ---------- Subtle entry animation ---------- */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(14px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.rise { opacity: 0; animation: rise 0.7s ease forwards; }
-.rise-1 { animation-delay: 0.05s; }
-.rise-2 { animation-delay: 0.15s; }
-.rise-3 { animation-delay: 0.3s; }
-.rise-4 { animation-delay: 0.45s; }
-.rise-5 { animation-delay: 0.6s; }
+.rise { opacity: 0; animation: rise 0.6s ease forwards; }
+.rise-1 { animation-delay: 0.04s; }
+.rise-2 { animation-delay: 0.12s; }
+.rise-3 { animation-delay: 0.22s; }
+.rise-4 { animation-delay: 0.34s; }
+.rise-5 { animation-delay: 0.46s; }
 
-/* ---------- Marquee ---------- */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.marquee-track {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  white-space: nowrap;
-  animation: marquee 32s linear infinite;
-  width: max-content;
+@media (prefers-reduced-motion: reduce) {
+  .rise { opacity: 1; animation: none; }
 }

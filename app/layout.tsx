@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
-import { Alfa_Slab_One, Fraunces } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const alfaSlab = Alfa_Slab_One({
-  weight: "400",
-  variable: "--font-alfa-slab",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
+// Single clean grotesque for the whole site. The western personality lives
+// in the bull-skull logo PNGs; the chrome stays professional and trustworthy.
+const hanken = Hanken_Grotesk({
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-hanken",
   subsets: ["latin"],
   display: "swap",
 });
@@ -47,10 +41,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${alfaSlab.variable} ${fraunces.variable}`}
-    >
+    <html lang="en" className={hanken.variable}>
       <body>{children}</body>
     </html>
   );

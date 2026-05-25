@@ -36,7 +36,7 @@ export const site = {
   license: "A49881",
   warranty: "1 year",
   hours: "Mon–Sat · 7am–7pm",
-  serviceCallPrice: process.env.NEXT_PUBLIC_SERVICE_CALL_PRICE ?? "49",
+  serviceCallPrice: process.env.NEXT_PUBLIC_SERVICE_CALL_PRICE ?? "99",
 } as const;
 
 export type ServiceSlug =

@@ -3,73 +3,66 @@ import { site } from "@/lib/site";
 
 export function Hero() {
   return (
-    <section className="bg-cream relative overflow-hidden">
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 py-14 sm:py-20 lg:py-24">
-        <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-14 items-center">
+    <section className="relative">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
+        <div className="grid lg:grid-cols-[1.25fr_1fr] gap-12 lg:gap-16 items-center">
           <div className="order-2 lg:order-1">
             <div
-              className="rise rise-1 inline-flex items-center gap-2.5 text-ink-soft mb-5"
+              className="rise rise-1 inline-flex items-center gap-2 text-ink-soft mb-5"
               style={{
                 fontFamily: "var(--font-display)",
-                letterSpacing: "0.18em",
-                fontSize: "0.75rem",
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+                fontSize: "0.74rem",
+                textTransform: "uppercase",
               }}
             >
-              <span aria-hidden className="text-rust">★</span>
+              <span aria-hidden className="inline-block w-1.5 h-1.5 rounded-full bg-rust" />
               Family-Owned · {site.city} County
-              <span aria-hidden className="text-rust">★</span>
             </div>
 
-            <h1
-              className="display"
-              style={{ lineHeight: 0.92, letterSpacing: "-0.01em" }}
-            >
+            <h1 className="display" style={{ lineHeight: 1.02 }}>
               <span
                 className="rise rise-2 block text-ink"
-                style={{
-                  fontSize: "clamp(2.4rem, 6.5vw, 4.8rem)",
-                }}
+                style={{ fontSize: "clamp(2.2rem, 5.5vw, 4rem)" }}
               >
-                We Fix Your
+                We fix your
               </span>
               <span
                 className="rise rise-3 block text-rust"
-                style={{
-                  fontSize: "clamp(3.5rem, 10vw, 6.5rem)",
-                  marginTop: "0.05em",
-                }}
+                style={{ fontSize: "clamp(3rem, 8.5vw, 5.5rem)", marginTop: "0.04em" }}
               >
-                Appliances.
+                appliances.
               </span>
             </h1>
 
             <p
-              className="rise rise-4 mt-6 italic font-medium text-ink-soft max-w-[42ch]"
-              style={{ fontFamily: "var(--font-body)", fontSize: "1.2rem", lineHeight: 1.5 }}
+              className="rise rise-4 mt-6 text-ink-soft max-w-[46ch]"
+              style={{ fontSize: "1.15rem", lineHeight: 1.6 }}
             >
               Your San Diego neighbors with the right tools and an honest
-              price. Same-day service across the county — every repair
+              price. Same-day service across the county, and every repair is
               backed by a one-year warranty.
             </p>
 
             <div className="rise rise-5 flex flex-wrap items-center gap-3 mt-8">
               <a href={`tel:${site.phoneRaw}`} className="btn-primary">
-                <span aria-hidden>☎</span>
+                <PhoneIcon />
                 Call {site.owner} · {site.phone}
               </a>
               <a href="#contact" className="btn-ghost">
-                Get a Quote <span aria-hidden>→</span>
+                Get a Quote
               </a>
             </div>
 
             <PricingPill />
           </div>
 
-          <aside className="order-1 lg:order-2 flex flex-col items-center gap-3">
+          <aside className="order-1 lg:order-2 flex justify-center">
             <Logo
               variant="primary"
               priority
-              className="w-[clamp(200px,28vw,300px)] h-auto"
+              className="w-[clamp(210px,30vw,320px)] h-auto"
             />
           </aside>
         </div>
@@ -81,30 +74,46 @@ export function Hero() {
 function PricingPill() {
   return (
     <div
-      className="rise rise-5 mt-7 inline-flex items-center gap-3 bg-cream-soft border-2 border-ink rounded-full pl-2 pr-4 py-1.5"
+      className="rise rise-5 mt-7 inline-flex items-center gap-3 bg-paper border border-line rounded-full pl-1.5 pr-4 py-1.5"
+      style={{ boxShadow: "var(--shadow-soft)" }}
       role="note"
       aria-label={`$${site.serviceCallPrice} service call`}
     >
       <span
-        className="bg-plate text-ink rounded-full px-2.5 py-1 leading-none border border-ink"
-        style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem" }}
+        className="bg-rust text-white rounded-full px-3 py-1.5 leading-none"
+        style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.05rem" }}
       >
         ${site.serviceCallPrice}
       </span>
       <span className="flex flex-col leading-tight">
         <span
-          className="text-[0.72rem] uppercase tracking-[0.1em] text-ink"
-          style={{ fontFamily: "var(--font-display)" }}
+          className="text-[0.74rem] uppercase tracking-[0.08em] text-ink"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
         >
           Service Call
         </span>
-        <span
-          className="text-[0.78rem] italic text-ink-soft"
-          style={{ fontFamily: "var(--font-body)" }}
-        >
-          Waived if we can&apos;t fix it.
+        <span className="text-[0.8rem] text-ink-soft">
+          Waived when we make the fix.
         </span>
       </span>
     </div>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
   );
 }

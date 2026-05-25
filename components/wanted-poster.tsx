@@ -1,62 +1,61 @@
 import { site } from "@/lib/site";
 
+/**
+ * Pricing callout — honest, flat diagnosis fee. Clean card, no western
+ * "wanted poster" framing anymore (kept the filename for stability).
+ */
 export function WantedPoster() {
   return (
-    <section className="py-20 bg-cream-soft">
+    <section className="py-20 sm:py-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-        <div className="max-w-[620px] mx-auto bg-paper border-2 border-ink p-8 sm:p-10 text-center relative shadow-[6px_6px_0_var(--color-ink)]">
-          <div
-            className="uppercase tracking-[0.18em] text-rust mb-3 text-xs"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Honest Pricing · No Surprises
-          </div>
+        <div
+          className="max-w-[680px] mx-auto bg-paper border border-line rounded-2xl p-8 sm:p-12 text-center"
+          style={{ boxShadow: "var(--shadow-soft)" }}
+        >
+          <div className="eyebrow mb-4 justify-center">Honest, Upfront Pricing</div>
           <h2
-            className="display text-ink mb-2"
-            style={{
-              fontSize: "clamp(2.2rem, 5vw, 3.2rem)",
-              lineHeight: 1,
-            }}
+            className="display text-ink mb-3"
+            style={{ fontSize: "clamp(1.9rem, 4vw, 2.6rem)" }}
           >
-            One Flat Diagnosis Fee.
+            One flat diagnosis fee.
           </h2>
-          <p
-            className="italic text-ink-soft mb-6 max-w-[40ch] mx-auto"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            We come out, find the problem, and tell you exactly what it
-            takes to fix.
+          <p className="text-ink-soft mb-8 max-w-[44ch] mx-auto">
+            We come out, find the problem, and give you an exact price before
+            any work begins. No surprises.
           </p>
 
-          <div className="border-y border-ink py-5 my-5 flex items-center justify-center gap-4 flex-wrap">
+          <div className="flex items-center justify-center gap-5 flex-wrap py-6 border-y border-line">
             <span
               className="text-rust leading-none"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "3.8rem",
-                letterSpacing: "-0.02em",
+                fontWeight: 800,
+                fontSize: "clamp(3rem, 8vw, 4.2rem)",
+                letterSpacing: "-0.03em",
               }}
             >
               ${site.serviceCallPrice}
             </span>
-            <span
-              className="uppercase tracking-[0.12em] text-left max-w-[16ch] leading-tight text-ink"
-              style={{ fontFamily: "var(--font-display)", fontSize: "0.82rem" }}
-            >
-              Service Call —<br />
-              <span className="text-rust">Fully Waived</span><br />
-              When We Make The Fix
+            <span className="text-left max-w-[18ch] text-ink leading-snug" style={{ fontWeight: 600 }}>
+              service call —{" "}
+              <span className="text-rust">fully waived</span> when we make the
+              fix.
             </span>
           </div>
 
-          <p
-            className="text-ink-soft text-sm sm:text-base leading-relaxed max-w-[44ch] mx-auto"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
+          <p className="text-ink-soft text-sm sm:text-base leading-relaxed max-w-[48ch] mx-auto mt-8">
             If we can&apos;t put your appliance back in working order on the
             first visit, the diagnosis is free. Every repair is backed by a
             one-year warranty and factory-certified parts.
           </p>
+
+          <a
+            href={`tel:${site.phoneRaw}`}
+            className="btn-primary mt-8"
+            aria-label={`Call ${site.phone}`}
+          >
+            Book a Visit · {site.phone}
+          </a>
         </div>
       </div>
     </section>

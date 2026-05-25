@@ -1,4 +1,3 @@
-import { TopBanner } from "@/components/top-banner";
 import { SiteNav } from "@/components/site-nav";
 import { Hero } from "@/components/hero";
 import { TrustStrip } from "@/components/trust-strip";
@@ -15,7 +14,6 @@ export default function Home() {
   return (
     <>
       <LocalBusinessSchema />
-      <TopBanner />
       <SiteNav />
       <main>
         <Hero />
