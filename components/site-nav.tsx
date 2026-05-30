@@ -1,10 +1,11 @@
 import { Logo } from "@/components/logo";
+import { MobileNav } from "@/components/mobile-nav";
 import { site } from "@/lib/site";
 
 export function SiteNav() {
   return (
     <nav
-      className="sticky top-0 z-50 bg-bg/95 backdrop-blur border-b border-line"
+      className="relative sticky top-0 z-50 bg-bg/95 backdrop-blur border-b border-line"
       aria-label="Primary"
     >
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 flex items-center justify-between gap-4 py-3">
@@ -41,15 +42,18 @@ export function SiteNav() {
           ))}
         </div>
 
-        <a
-          href={`tel:${site.phoneRaw}`}
-          className="btn-primary !py-2 !px-3.5 !text-sm"
-          aria-label={`Call ${site.name} at ${site.phone}`}
-        >
-          <PhoneIcon />
-          <span className="hidden sm:inline">{site.phone}</span>
-          <span className="sm:hidden">Call</span>
-        </a>
+        <div className="flex items-center gap-2">
+          <MobileNav />
+          <a
+            href={`tel:${site.phoneRaw}`}
+            className="btn-primary !py-2 !px-3.5 !text-sm"
+            aria-label={`Call ${site.name} at ${site.phone}`}
+          >
+            <PhoneIcon />
+            <span className="hidden sm:inline">{site.phone}</span>
+            <span className="sm:hidden">Call</span>
+          </a>
+        </div>
       </div>
     </nav>
   );
