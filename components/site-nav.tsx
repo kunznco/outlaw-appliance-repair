@@ -24,11 +24,11 @@ export function SiteNav() {
 
         <div className="hidden lg:flex items-center gap-7">
           {[
-            { href: "#services", label: "Services" },
-            { href: "#area", label: "Service Area" },
-            { href: "#about", label: "About" },
-            { href: "#reviews", label: "Reviews" },
-            { href: "#contact", label: "Contact" },
+            { href: "/services", label: "Services" },
+            { href: "/#area", label: "Service Area" },
+            { href: "/#about", label: "About" },
+            { href: "/#reviews", label: "Reviews" },
+            { href: "/#contact", label: "Contact" },
           ].map((link) => (
             <a
               key={link.href}
