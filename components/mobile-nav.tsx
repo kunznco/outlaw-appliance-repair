@@ -17,13 +17,35 @@ export function MobileNav() {
 
   const close = useCallback(() => setIsOpen(false), [])
 
-  // Esc closes the menu and returns focus to the toggle button
+  // Esc closes, Tab is trapped between toggle button ↔ last link
   useEffect(() => {
     if (!isOpen) return
     const handle = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         close()
         toggleRef.current?.focus()
+        return
+      }
+      if (e.key === 'Tab') {
+        const panel = document.getElementById('mobile-nav-panel')
+        if (!panel) return
+        const links = Array.from(panel.querySelectorAll<HTMLElement>('a[href]'))
+        if (links.length === 0) return
+        const lastLink = links[links.length - 1]
+        const toggle = toggleRef.current
+        if (e.shiftKey) {
+          // Shift+Tab on toggle → wrap to last link
+          if (document.activeElement === toggle) {
+            e.preventDefault()
+            lastLink.focus()
+          }
+        } else {
+          // Tab on last link → wrap to toggle button
+          if (document.activeElement === lastLink) {
+            e.preventDefault()
+            toggle?.focus()
+          }
+        }
       }
     }
     document.addEventListener('keydown', handle)
@@ -57,39 +79,43 @@ export function MobileNav() {
         {isOpen ? <XIcon /> : <HamburgerIcon />}
       </button>
 
+      {/* Backdrop — conditionally rendered; closes menu on tap */}
       {isOpen && (
-        <>
-          {/* Backdrop — covers page content, closes menu on tap */}
-          <div
-            aria-hidden="true"
-            className="fixed inset-0 z-40 bg-ink/40 lg:hidden"
-            onClick={close}
-          />
-
-          {/* Dropdown panel — positions relative to the sticky <nav> */}
-          <nav
-            id="mobile-nav-panel"
-            aria-label="Mobile navigation"
-            className="absolute left-0 right-0 top-full z-50 bg-bg/95 backdrop-blur border-b border-line shadow-soft-lg lg:hidden"
-          >
-            <ul role="list" className="flex flex-col py-2">
-              {NAV_LINKS.map((link, i) => (
-                <li key={link.href}>
-                  <a
-                    ref={i === 0 ? firstLinkRef : undefined}
-                    href={link.href}
-                    className="flex items-center px-6 py-3.5 text-[0.87rem] text-ink-soft hover:text-rust hover:bg-rust/5 transition-colors"
-                    style={{ fontFamily: 'var(--font-display)', fontWeight: 600 }}
-                    onClick={close}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </>
+        <div
+          aria-hidden="true"
+          className="fixed inset-0 z-40 bg-ink/40 lg:hidden"
+          onClick={close}
+        />
       )}
+
+      {/*
+        Panel — always in DOM so aria-controls always points to a valid element.
+        hidden attribute (display:none) removes it from the tab order when closed.
+        Uses div[role=navigation] rather than <nav> to avoid nested nav landmarks.
+      */}
+      <div
+        id="mobile-nav-panel"
+        role="navigation"
+        aria-label="Mobile navigation"
+        hidden={!isOpen}
+        className="absolute left-0 right-0 top-full z-50 bg-bg/95 backdrop-blur border-b border-line shadow-soft-lg lg:hidden"
+      >
+        <ul role="list" className="flex flex-col py-2">
+          {NAV_LINKS.map((link, i) => (
+            <li key={link.href}>
+              <a
+                ref={i === 0 ? firstLinkRef : undefined}
+                href={link.href}
+                className="flex items-center px-6 py-3.5 text-[0.87rem] text-ink-soft hover:text-rust hover:bg-rust/5 transition-colors"
+                style={{ fontFamily: 'var(--font-display)', fontWeight: 600 }}
+                onClick={close}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   )
 }
