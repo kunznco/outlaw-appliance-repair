@@ -9,7 +9,8 @@ import { site } from "@/lib/site";
 import { servicePages, serviceImages } from "@/lib/services-content";
 
 export const metadata: Metadata = {
-  title: "Appliance Repair Services in San Diego | Outlaw Appliance Repair",
+  // absolute so the layout's "%s · {brand}" template doesn't double the brand
+  title: { absolute: "Appliance Repair Services in San Diego | Outlaw Appliance Repair" },
   description:
     "Refrigerators, dishwashers, ovens, washers, dryers, microwaves, garbage disposals & ice makers — factory-trained repair across San Diego. 1-year warranty. Call (858) 757-8977.",
   alternates: { canonical: `${site.url}/services` },

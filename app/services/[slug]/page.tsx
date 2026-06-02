@@ -23,7 +23,9 @@ export async function generateMetadata({
   if (!page) return {};
   const url = `${site.url}/services/${page.urlSlug}`;
   return {
-    title: page.metaTitle,
+    // absolute so the layout's "%s · {brand}" template doesn't double the
+    // brand name (metaTitle already ends with "| Outlaw Appliance Repair")
+    title: { absolute: page.metaTitle },
     description: page.metaDescription,
     alternates: { canonical: url },
     openGraph: {

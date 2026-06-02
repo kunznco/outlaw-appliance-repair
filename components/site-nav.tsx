@@ -1,5 +1,6 @@
 import { Logo } from "@/components/logo";
-import { site } from "@/lib/site";
+import { MobileNav } from "@/components/mobile-nav";
+import { site, navLinks } from "@/lib/site";
 
 export function SiteNav() {
   return (
@@ -23,13 +24,7 @@ export function SiteNav() {
         </a>
 
         <div className="hidden lg:flex items-center gap-7">
-          {[
-            { href: "/services", label: "Services" },
-            { href: "/#area", label: "Service Area" },
-            { href: "/#about", label: "About" },
-            { href: "/#reviews", label: "Reviews" },
-            { href: "/#contact", label: "Contact" },
-          ].map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -41,15 +36,18 @@ export function SiteNav() {
           ))}
         </div>
 
-        <a
-          href={`tel:${site.phoneRaw}`}
-          className="btn-primary !py-2 !px-3.5 !text-sm"
-          aria-label={`Call ${site.name} at ${site.phone}`}
-        >
-          <PhoneIcon />
-          <span className="hidden sm:inline">{site.phone}</span>
-          <span className="sm:hidden">Call</span>
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href={`tel:${site.phoneRaw}`}
+            className="btn-primary !py-2 !px-3.5 !text-sm"
+            aria-label={`Call ${site.name} at ${site.phone}`}
+          >
+            <PhoneIcon />
+            <span className="hidden sm:inline">{site.phone}</span>
+            <span className="sm:hidden">Call</span>
+          </a>
+          <MobileNav />
+        </div>
       </div>
     </nav>
   );
