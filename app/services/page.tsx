@@ -8,17 +8,29 @@ import { ServiceIcon } from "@/components/service-icon";
 import { site } from "@/lib/site";
 import { servicePages, serviceImages } from "@/lib/services-content";
 
+const HUB_TITLE =
+  "Appliance Repair Services in San Diego | Outlaw Appliance Repair";
+const HUB_DESC =
+  "Refrigerators, dishwashers, ovens, washers, dryers, microwaves, garbage disposals & ice makers — factory-trained repair across San Diego. 1-year warranty. Call (858) 757-8977.";
+
 export const metadata: Metadata = {
   // absolute so the layout's "%s · {brand}" template doesn't double the brand
-  title: { absolute: "Appliance Repair Services in San Diego | Outlaw Appliance Repair" },
-  description:
-    "Refrigerators, dishwashers, ovens, washers, dryers, microwaves, garbage disposals & ice makers — factory-trained repair across San Diego. 1-year warranty. Call (858) 757-8977.",
+  title: { absolute: HUB_TITLE },
+  description: HUB_DESC,
   alternates: { canonical: `${site.url}/services` },
+  openGraph: {
+    title: HUB_TITLE,
+    description: HUB_DESC,
+    url: `${site.url}/services`,
+    type: "website",
+  },
+  twitter: { title: HUB_TITLE, description: HUB_DESC },
 };
 
 export default function ServicesHub() {
   return (
     <>
+      <HubSchema />
       <SiteNav />
       <main>
         <section className="mx-auto max-w-[1240px] px-4 sm:px-6 py-12 sm:py-16">
@@ -85,5 +97,40 @@ export default function ServicesHub() {
       </main>
       <SiteFooter />
     </>
+  );
+}
+
+function HubSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: `${site.url}/services`,
+          },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        itemListElement: servicePages.map((s, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: `${s.name} Repair`,
+          url: `${site.url}/services/${s.urlSlug}`,
+        })),
+      },
+    ],
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
 }

@@ -8,7 +8,12 @@ import { Testimonials } from "@/components/testimonials";
 import { ServiceArea } from "@/components/service-area";
 import { FinalCta } from "@/components/final-cta";
 import { SiteFooter } from "@/components/site-footer";
+import type { Metadata } from "next";
 import { site, services, testimonials, serviceAreas } from "@/lib/site";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
@@ -51,6 +56,20 @@ function LocalBusinessSchema() {
       "@type": "City",
       name: `${a.name}, CA`,
     })),
+    // Mon–Sat 7am–7pm
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "07:00",
+      closes: "19:00",
+    },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Appliance Repair Services",
