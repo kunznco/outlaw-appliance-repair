@@ -3,6 +3,25 @@
 All notable changes to this project will be documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.0] — 2026-06-02 — Service pages, real imagery, SEO hardening, domain prep
+
+### Added
+- 8 per-appliance service pages + `/services` hub (refrigerator, dishwasher, oven/range/cooktop, washer, dryer, microwave, garbage disposal, ice maker), each with symptoms, repair-vs-replace, brands, San Diego local angle, and an FAQ — content in `lib/services-content.ts`
+- JSON-LD on service pages (Service + FAQPage + BreadcrumbList) and the hub (BreadcrumbList + ItemList); openingHours added to home LocalBusiness schema
+- Real photography across all 8 service cards + hero/about (Jesse's own photos from his site + House Calls; microwave + garbage disposal from free-commercial Pexels/Unsplash, no branding)
+- Mobile hamburger nav (`components/mobile-nav.tsx`)
+- OG image (`/og.png`) + OpenGraph/Twitter image tags; favicon.ico; home canonical; per-page Twitter cards
+- Custom domain `outlawappliancerepair.com` + `www` added to the Vercel project; `NEXT_PUBLIC_SITE_URL` set to the real domain. Cutover runbook in `DOMAIN-CUTOVER.md` (awaiting GoDaddy DNS flip)
+
+### Changed
+- Branding toned down: single clean grotesque (Hanken Grotesk), soft UI, rust as ~10% accent; western personality kept in the logo + subtle skull tidbits
+- Service call price $49 → $99
+- Service list reconciled to 8 appliances (dropped trash compactor + wall oven, added ice maker)
+
+### Fixed
+- **Phone corrected to (858) 757-8977** — the live site had a wrong (619) number
+- Service-page `<title>` was doubling the brand name (now `title: { absolute }`)
+
 ## [0.1.0] — 2026-05-15 — V1 home page live
 
 First public deployment. Home page only, click-to-call + mailto.
