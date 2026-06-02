@@ -1,10 +1,12 @@
+import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { LicensePlate } from "@/components/license-plate";
 import { SkullMark } from "@/components/western";
-import { site, services, serviceAreas } from "@/lib/site";
+import { site, serviceAreas } from "@/lib/site";
+import { servicePages } from "@/lib/services-content";
 
 export function SiteFooter() {
-  const topServices = services.slice(0, 5);
+  const topServices = servicePages.slice(0, 5);
   const topAreas = serviceAreas.slice(0, 4);
   return (
     <footer className="bg-cream text-ink border-t border-line pt-16 pb-8">
@@ -22,13 +24,13 @@ export function SiteFooter() {
           <FooterCol heading="Services">
             {topServices.map((s) => (
               <li key={s.slug}>
-                <a href="#services" className="hover:text-rust transition-colors">
-                  {s.title.split(" & ")[0].split(",")[0]} Repair
-                </a>
+                <Link href={`/services/${s.urlSlug}`} className="hover:text-rust transition-colors">
+                  {s.name.split(" & ")[0].split(",")[0]} Repair
+                </Link>
               </li>
             ))}
             <li>
-              <a href="#services" className="text-rust">All Services →</a>
+              <Link href="/services" className="text-rust">All Services →</Link>
             </li>
           </FooterCol>
 

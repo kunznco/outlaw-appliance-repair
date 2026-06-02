@@ -168,6 +168,14 @@ export const serviceAreas: { name: string; short: string }[] = [
   { name: "Chula Vista", short: "Chula Vista" },
 ];
 
+export const navLinks: { href: string; label: string }[] = [
+  { href: "/services", label: "Services" },
+  { href: "/#area", label: "Service Area" },
+  { href: "/#about", label: "About" },
+  { href: "/#reviews", label: "Reviews" },
+  { href: "/#contact", label: "Contact" },
+];
+
 export const trustBadges = [
   { label: "5.0 on Google", stars: true },
   { label: `${site.warranty} Warranty` },

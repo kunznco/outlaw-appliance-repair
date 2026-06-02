@@ -1,4 +1,4 @@
-import { Logo } from "@/components/logo";
+import Image from "next/image";
 import { Eyebrow } from "@/components/western";
 import { site } from "@/lib/site";
 
@@ -6,22 +6,36 @@ export function About() {
   return (
     <section id="about" className="py-20 sm:py-24 bg-cream/40 border-y border-line">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-        <div className="grid lg:grid-cols-[0.9fr_1.3fr] gap-12 lg:gap-16 items-center">
-          <div className="relative max-w-[360px] w-full mx-auto">
-            <Logo
-              variant="shield"
-              className="w-full h-auto"
-              title="Outlaw Appliance Repair — Jesse, Proprietor"
-            />
+        <div className="grid lg:grid-cols-[0.95fr_1.3fr] gap-14 lg:gap-16 items-center">
+          {/* Photo collage: Jesse working + the Outlaw truck */}
+          <div className="relative max-w-[420px] w-full mx-auto mb-10 lg:mb-0">
             <div
-              className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-paper border border-line rounded-full px-4 py-1.5 whitespace-nowrap text-ink"
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 700,
-                fontSize: "0.7rem",
-                letterSpacing: "0.04em",
-                boxShadow: "var(--shadow-soft)",
-              }}
+              className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-line"
+              style={{ boxShadow: "var(--shadow-soft-lg)" }}
+            >
+              <Image
+                src="/images/tech-working.webp"
+                alt="Jesse from Outlaw Appliance Repair working on an appliance"
+                fill
+                sizes="(max-width: 1024px) 90vw, 38vw"
+                className="object-cover"
+              />
+            </div>
+            <div
+              className="absolute -bottom-6 -right-3 w-40 sm:w-48 aspect-[4/3] rounded-xl overflow-hidden border-[3px] border-paper"
+              style={{ boxShadow: "var(--shadow-soft)" }}
+            >
+              <Image
+                src="/images/outlaw-truck.webp"
+                alt="Outlaw Appliance Repair service truck in San Diego"
+                fill
+                sizes="200px"
+                className="object-cover"
+              />
+            </div>
+            <div
+              className="absolute top-3 left-3 bg-paper/95 border border-line rounded-full px-3 py-1 text-ink"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.7rem", letterSpacing: "0.02em" }}
             >
               {site.owner} · {site.ownerRole}
             </div>
@@ -63,7 +77,7 @@ export function About() {
 
 function Credential({ label, value }: { label: string; value: string }) {
   return (
-    <div className="bg-paper border border-line rounded-lg p-4 text-center">
+    <div className="bg-paper border border-line rounded-lg p-3 text-center">
       <div
         className="uppercase text-ink-soft mb-1"
         style={{
