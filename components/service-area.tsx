@@ -1,4 +1,6 @@
-import { serviceAreas, site } from "@/lib/site";
+import Link from "next/link";
+import { site } from "@/lib/site";
+import { areas } from "@/lib/areas-content";
 import { Eyebrow } from "@/components/western";
 
 export function ServiceArea() {
@@ -21,15 +23,26 @@ export function ServiceArea() {
             </p>
 
             <ul className="flex flex-wrap gap-2" aria-label="Cities served">
-              {serviceAreas.map((area) => (
-                <li
-                  key={area.name}
-                  className="bg-paper border border-line rounded-full px-3 py-1.5 text-[0.8rem] text-ink"
-                  style={{ fontWeight: 500 }}
-                >
-                  {area.name}
+              {areas.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    href={`/service-area/${area.slug}`}
+                    className="inline-block bg-paper border border-line rounded-full px-3 py-1.5 text-[0.8rem] text-ink hover:border-rust hover:text-rust transition-colors"
+                    style={{ fontWeight: 500 }}
+                  >
+                    {area.name}
+                  </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/service-area"
+                  className="inline-block rounded-full px-3 py-1.5 text-[0.8rem] text-rust hover:bg-paper transition-colors"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
+                >
+                  All areas →
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -62,9 +75,18 @@ export function ServiceArea() {
                 )
               )}
             </div>
-            <a href={`tel:${site.phoneRaw}`} className="btn-primary">
-              Book a Visit · {site.phone}
-            </a>
+            <div className="flex flex-wrap items-center gap-4">
+              <a href={`tel:${site.phoneRaw}`} className="btn-primary">
+                Book a Visit · {site.phone}
+              </a>
+              <Link
+                href="/service-area/rancho-santa-fe"
+                className="text-[0.85rem] text-rust hover:underline"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
+              >
+                Rancho Santa Fe details →
+              </Link>
+            </div>
           </aside>
         </div>
       </div>

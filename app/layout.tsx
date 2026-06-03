@@ -15,7 +15,7 @@ const hanken = Hanken_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — San Diego's Factory-Trained Repair Crew`,
+    default: `${site.name} — Owner-Operated San Diego Appliance Repair`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — San Diego's Factory-Trained Repair Crew`,
+    title: `${site.name} — Owner-Operated San Diego Appliance Repair`,
     description: site.description,
     images: [
       {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — San Diego's Factory-Trained Repair Crew`,
+    title: `${site.name} — Owner-Operated San Diego Appliance Repair`,
     description: site.description,
     images: ["/og.png"],
   },

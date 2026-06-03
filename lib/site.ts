@@ -7,7 +7,7 @@ export const site = {
   name: "Outlaw Appliance Repair",
   shortName: "Outlaw",
   owner: "Jesse",
-  ownerRole: "Proprietor",
+  ownerRole: "Owner",
   tagline: "Where Expertise Meets Reliability",
   description:
     "Licensed San Diego appliance repair. Refrigerators, ranges, washers, dryers, dishwashers and more — factory-certified parts, one-year warranty on every job. Call (858) 757-8977.",

@@ -1,6 +1,9 @@
+import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { MobileNav } from "@/components/mobile-nav";
-import { site, navLinks } from "@/lib/site";
+import { site } from "@/lib/site";
+import { servicePages } from "@/lib/services-content";
+import { areas } from "@/lib/areas-content";
 
 export function SiteNav() {
   return (
@@ -14,26 +17,36 @@ export function SiteNav() {
           className="flex items-center shrink-0"
           aria-label={`${site.name} home`}
         >
-          {/* Mobile: square skull icon. Desktop: full horizontal lockup. */}
-          <Logo variant="icon" className="h-10 w-10 sm:hidden" priority />
-          <Logo
-            variant="horizontal"
-            className="hidden sm:block h-11 w-auto md:h-12"
-            priority
-          />
+          {/* Single full lockup at every breakpoint (skull + horns + wordmark + San Diego, CA) */}
+          <Logo variant="horizontal" className="h-10 w-auto sm:h-11 md:h-12" priority />
         </a>
 
-        <div className="hidden lg:flex items-center gap-7">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-[0.82rem] text-ink-soft hover:text-rust transition-colors"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 600 }}
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="hidden lg:flex items-center gap-6">
+          {/* Services dropdown */}
+          <Dropdown label="Services" href="/services" cols={1} width="w-64">
+            {servicePages.map((s) => (
+              <DropdownLink key={s.urlSlug} href={`/services/${s.urlSlug}`}>
+                {s.name}
+              </DropdownLink>
+            ))}
+            <AllLink href="/services">All services →</AllLink>
+          </Dropdown>
+
+          {/* Service Areas dropdown (2-col) */}
+          <Dropdown label="Service Areas" href="/service-area" cols={2} width="w-[26rem]">
+            {areas.map((a) => (
+              <DropdownLink key={a.slug} href={`/service-area/${a.slug}`}>
+                {a.name}
+              </DropdownLink>
+            ))}
+            <AllLink href="/service-area" span2>
+              All San Diego County →
+            </AllLink>
+          </Dropdown>
+
+          <TopLink href="/#about">About</TopLink>
+          <TopLink href="/#reviews">Reviews</TopLink>
+          <TopLink href="/#contact">Contact</TopLink>
         </div>
 
         <div className="flex items-center gap-2">
@@ -50,6 +63,80 @@ export function SiteNav() {
         </div>
       </div>
     </nav>
+  );
+}
+
+const linkStyle = { fontFamily: "var(--font-display)", fontWeight: 600 } as const;
+
+function TopLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="text-[0.82rem] text-ink-soft hover:text-rust transition-colors"
+      style={linkStyle}
+    >
+      {children}
+    </Link>
+  );
+}
+
+/** CSS-only hover/focus dropdown. Trigger is a real link to the hub page. */
+function Dropdown({
+  label,
+  href,
+  children,
+  cols,
+  width,
+}: {
+  label: string;
+  href: string;
+  children: React.ReactNode;
+  cols: 1 | 2;
+  width: string;
+}) {
+  return (
+    <div className="relative group">
+      <Link
+        href={href}
+        className="inline-flex items-center gap-1 text-[0.82rem] text-ink-soft hover:text-rust transition-colors py-2"
+        style={linkStyle}
+        aria-haspopup="true"
+      >
+        {label}
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="mt-0.5 transition-transform group-hover:rotate-180">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </Link>
+      <div className="absolute left-0 top-full pt-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-all duration-150">
+        <div className={`${width} bg-paper border border-line rounded-xl shadow-[var(--shadow-soft-lg)] p-2 grid ${cols === 2 ? "grid-cols-2" : "grid-cols-1"} gap-0.5`}>
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DropdownLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="px-3 py-2 rounded-lg text-ink hover:bg-cream hover:text-rust transition-colors text-[0.85rem]"
+      style={{ fontWeight: 500 }}
+    >
+      {children}
+    </Link>
+  );
+}
+
+function AllLink({ href, children, span2 }: { href: string; children: React.ReactNode; span2?: boolean }) {
+  return (
+    <Link
+      href={href}
+      className={`px-3 py-2 mt-1 rounded-lg text-rust hover:bg-cream transition-colors text-[0.85rem] border-t border-line ${span2 ? "col-span-2" : ""}`}
+      style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
+    >
+      {children}
+    </Link>
   );
 }
 

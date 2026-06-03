@@ -18,11 +18,12 @@ export function WantedPoster() {
             className="display text-ink mb-3"
             style={{ fontSize: "clamp(1.9rem, 4vw, 2.6rem)" }}
           >
-            One flat diagnosis fee.
+            Your diagnosis fee is on us when we do the repair.
           </h2>
-          <p className="text-ink-soft mb-8 max-w-[44ch] mx-auto">
-            We come out, find the problem, and give you an exact price before
-            any work begins. No surprises.
+          <p className="text-ink-soft mb-8 max-w-[46ch] mx-auto">
+            A flat ${site.serviceCallPrice} covers the visit and a full
+            diagnosis. Approve the repair and that ${site.serviceCallPrice}{" "}
+            comes right off your bill — so the diagnosis costs you nothing.
           </p>
 
           <div className="flex items-center justify-center gap-5 flex-wrap py-6 border-y border-line">
@@ -40,16 +41,16 @@ export function WantedPoster() {
                 ${site.serviceCallPrice}
               </span>
             </span>
-            <span className="text-left max-w-[18ch] text-ink leading-snug" style={{ fontWeight: 600 }}>
-              service call —{" "}
-              <span className="text-rust">fully waived</span> when we make the
-              fix.
+            <span className="text-left max-w-[20ch] text-ink leading-snug" style={{ fontWeight: 600 }}>
+              diagnosis fee —{" "}
+              <span className="text-rust">credited back</span> when you approve
+              the repair.
             </span>
           </div>
 
-          <p className="text-ink-soft text-sm sm:text-base leading-relaxed max-w-[48ch] mx-auto mt-8">
-            If we can&apos;t put your appliance back in working order on the
-            first visit, the diagnosis is free. Every repair is backed by a
+          <p className="text-ink-soft text-sm sm:text-base leading-relaxed max-w-[50ch] mx-auto mt-8">
+            Decide not to repair? All you pay is the ${site.serviceCallPrice}{" "}
+            for the visit — no pressure. Every repair we do is backed by a
             one-year warranty and factory-certified parts.
           </p>
 
