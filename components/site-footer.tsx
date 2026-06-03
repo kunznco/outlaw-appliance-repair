@@ -2,12 +2,13 @@ import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { LicensePlate } from "@/components/license-plate";
 import { SkullMark } from "@/components/western";
-import { site, serviceAreas } from "@/lib/site";
+import { site } from "@/lib/site";
 import { servicePages } from "@/lib/services-content";
+import { areas } from "@/lib/areas-content";
 
 export function SiteFooter() {
   const topServices = servicePages.slice(0, 5);
-  const topAreas = serviceAreas.slice(0, 4);
+  const topAreas = areas.slice(0, 5);
   return (
     <footer className="bg-cream text-ink border-t border-line pt-16 pb-8">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
@@ -15,8 +16,9 @@ export function SiteFooter() {
           <div className="flex flex-col gap-4">
             <Logo variant="shield" className="w-32 h-auto" />
             <p className="text-ink-soft leading-relaxed max-w-[30ch]" style={{ fontSize: "0.9rem" }}>
-              San Diego&apos;s factory-trained appliance repair crew. Family
-              owned, fully licensed, every job warrantied.
+              Owner-operated, factory-trained appliance repair in San Diego.
+              The person you call is the person who shows up — licensed, and
+              every job warrantied.
             </p>
             <LicensePlate number={site.license} className="self-start !text-sm" />
           </div>
@@ -34,14 +36,14 @@ export function SiteFooter() {
             </li>
           </FooterCol>
 
-          <FooterCol heading="Service Area">
+          <FooterCol heading="Service Areas">
             {topAreas.map((a) => (
-              <li key={a.name}>
-                <a href="#area" className="hover:text-rust transition-colors">{a.name}</a>
+              <li key={a.slug}>
+                <Link href={`/service-area/${a.slug}`} className="hover:text-rust transition-colors">{a.name}</Link>
               </li>
             ))}
             <li>
-              <a href="#area" className="text-rust">All San Diego County →</a>
+              <Link href="/service-area" className="text-rust">All San Diego County →</Link>
             </li>
           </FooterCol>
 

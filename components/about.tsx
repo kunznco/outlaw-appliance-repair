@@ -14,11 +14,11 @@ export function About() {
               style={{ boxShadow: "var(--shadow-soft-lg)" }}
             >
               <Image
-                src="/images/tech-working.webp"
-                alt="Jesse from Outlaw Appliance Repair working on an appliance"
+                src="/images/jesse.webp"
+                alt="Jesse, owner-operator of Outlaw Appliance Repair in San Diego"
                 fill
                 sizes="(max-width: 1024px) 90vw, 38vw"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
             <div
@@ -52,9 +52,9 @@ export function About() {
             <p className="text-ink-soft mb-4 leading-relaxed max-w-[56ch]" style={{ fontSize: "1.05rem" }}>
               {site.owner} is a {site.city} local who&apos;s spent two decades
               with his hands inside refrigerators, ovens, washers, and dryers
-              across the county. Outlaw is his family-owned shop — built on a
-              simple promise: show up on time, fix it once, and charge a fair
-              price.
+              across the county. Outlaw is his one-man shop — owner-operated,
+              so the person who answers your call is the same person who shows
+              up at your door and does the work.
             </p>
             <p className="text-ink-soft mb-6 leading-relaxed max-w-[56ch]" style={{ fontSize: "1.05rem" }}>
               Factory-trained on every major brand. Licensed by the State of

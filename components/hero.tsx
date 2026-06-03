@@ -91,10 +91,10 @@ function PricingPill() {
           className="text-[0.74rem] uppercase tracking-[0.08em] text-ink"
           style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
         >
-          Service Call
+          Diagnosis Fee
         </span>
         <span className="text-[0.8rem] text-ink-soft">
-          Waived when we make the fix.
+          Waived when you book the repair.
         </span>
       </span>
     </div>
