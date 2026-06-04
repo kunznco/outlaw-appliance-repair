@@ -1,15 +1,26 @@
 # SESSION STATE — Outlaw Appliance Repair
 
-_Last updated: 2026-06-02_
+_Last updated: 2026-06-04_
 
 ## Where things stand
 
-**Full site is LIVE in production** (service pages + real imagery + SEO hardening), and the custom domain is **cutover-ready on the Vercel side — waiting on a GoDaddy DNS flip.**
+**Full site is LIVE in production** — home, 8 service pages + `/services` hub, 14 city service-area pages + `/service-area` hub, plus the new **Privacy**, **Terms**, and **Reviews** pages and schema enrichment. The custom domain is **cutover-ready on the Vercel side — still waiting on a GoDaddy DNS flip.**
 
 - **Live (Vercel URL):** https://outlaw-appliance-repair.vercel.app
 - **Target domain:** https://outlawappliancerepair.com (added to the Vercel project; DNS not yet pointed)
 - **Repo:** https://github.com/kunznco/outlaw-appliance-repair (default branch `dev` = production)
 - **Vercel:** project `outlaw-appliance-repair`, team `kunzncos-projects`, GitHub-connected (push to `dev` auto-deploys)
+- **Lead capture:** **Jobber's integrated lead form** (embedded). Resend was dropped for the contact form.
+- **Analytics:** none — Vercel Web Analytics was explicitly declined this session.
+
+## Shipped this session (2026-06-04)
+
+- **Privacy Policy page** (`/privacy`) — analytics & advertising disclosures (Google Analytics, Google Ads, Meta/Facebook Ads) + California CCPA/CPRA rights.
+- **Terms & Conditions page** (`/terms`).
+- **Reviews page** (`/reviews`) — highlights Google reviews with review + aggregate-rating schema. Shares a `legal-page.tsx`-style prose shell with the legal pages.
+- **Schema enrichment** — geo coordinates + `sameAs` scaffolding in the JSON-LD, plus one centralized review-rating object reused across the site.
+- **Nav + footer wiring** — footer now links to Privacy / Terms / Reviews; the nav "Reviews" link points to the dedicated `/reviews` page (was an on-page anchor). The three new pages added to the sitemap.
+- **Docs + dead-code cleanup** — README brought current (single Hanken Grotesk font, PNG logo, env price 99, current page/component tree); removed the unused `top-banner` component and the unused `announcements` and `navLinks` arrays in `lib/site.ts`.
 
 ## Shipped this session (2026-06-02)
 
@@ -44,10 +55,9 @@ DNS is managed at **GoDaddy** (ns25/ns26.domaincontrol.com). Email is **Google W
 
 ## Backlog / next build phases
 
-- **Tier-3 SEO:** city/area pages (`/service-area/la-jolla`, Chula Vista, etc.) and brand×neighborhood combos — the biggest local-SEO lever (Mr. Appliance blueprint).
-- **Resend contact form** (currently mailto only) — needs RESEND_API_KEY in Doppler.
-- **Analytics:** none yet (intentional). Vercel Web Analytics is the no-cost first step when wanted.
-- **Schema enrichment:** add geo coords + sameAs (GBP/social) once we have them.
+- **Need from Chris:** the **Google Business Profile URL** + any additional **Google review text** to finalize the reviews page's Google links and the `sameAs` schema — both are currently scaffolded/empty.
+- **Tier-3 SEO:** brand × neighborhood combo pages — the biggest remaining local-SEO lever (Mr. Appliance blueprint). The 14 city service-area pages already shipped.
+- **Brand pages:** Sub-Zero / Wolf / Viking dedicated pages.
 - **Nano-banana imagery:** still optional; Jesse's real photos cover the site now.
 
 ## Gotchas

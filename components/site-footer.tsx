@@ -59,13 +59,23 @@ export function SiteFooter() {
           </FooterCol>
         </div>
 
-        <div className="border-t border-line pt-6 flex flex-wrap items-center justify-between gap-3 text-ink-soft text-[0.78rem]">
-          <div>
-            © {new Date().getFullYear()} {site.name} · Lic. {site.license} · Family Owned
-          </div>
-          <div className="inline-flex items-center gap-2">
-            <SkullMark className="w-4 h-2.5 text-rust/70" />
-            {site.tagline}
+        <div className="border-t border-line pt-6 flex flex-col gap-4">
+          <nav
+            aria-label="Legal and reviews"
+            className="flex flex-wrap gap-x-5 gap-y-2 text-ink-soft text-[0.8rem]"
+          >
+            <Link href="/reviews" className="hover:text-rust transition-colors">Reviews</Link>
+            <Link href="/privacy" className="hover:text-rust transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-rust transition-colors">Terms &amp; Conditions</Link>
+          </nav>
+          <div className="flex flex-wrap items-center justify-between gap-3 text-ink-soft text-[0.78rem]">
+            <div>
+              © {new Date().getFullYear()} {site.name} · Lic. {site.license} · Family Owned
+            </div>
+            <div className="inline-flex items-center gap-2">
+              <SkullMark className="w-4 h-2.5 text-rust/70" />
+              {site.tagline}
+            </div>
           </div>
         </div>
       </div>
