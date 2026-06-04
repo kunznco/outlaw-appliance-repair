@@ -197,15 +197,19 @@ export const trustBadges = [
 export const reviewsMeta = {
   ratingValue: "5.0",
   reviewCount: testimonials.length,
-  googleProfileUrl: "", // GBP listing URL — "See us on Google"
-  googleReviewUrl: "", // direct "write a review" link
+  // Google Business Profile share link (resolves to the Outlaw listing where
+  // visitors can read reviews and tap "Write a review"). If Chris pulls the
+  // dedicated one-tap review link from the GBP dashboard, swap it into
+  // googleReviewUrl.
+  googleProfileUrl: "https://share.google/OCLBeAVwjklLF6So9",
+  googleReviewUrl: "https://share.google/OCLBeAVwjklLF6So9",
 } as const;
 
 /** Approximate business center (San Diego) for LocalBusiness geo schema. */
 export const geo = { latitude: 32.7157, longitude: -117.1611 } as const;
 
-/** Profile URLs for schema sameAs (GBP, Yelp, Facebook…). Empty until known. */
-export const sameAs: string[] = [];
+/** Profile URLs for schema sameAs (GBP, Yelp, Facebook…). */
+export const sameAs: string[] = ["https://share.google/OCLBeAVwjklLF6So9"];
 
 /**
  * Honest review JSON-LD fragment. Only asserts aggregateRating + reviews when
