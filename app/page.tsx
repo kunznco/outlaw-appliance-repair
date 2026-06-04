@@ -9,7 +9,14 @@ import { ServiceArea } from "@/components/service-area";
 import { FinalCta } from "@/components/final-cta";
 import { SiteFooter } from "@/components/site-footer";
 import type { Metadata } from "next";
-import { site, services, testimonials, serviceAreas } from "@/lib/site";
+import {
+  site,
+  services,
+  serviceAreas,
+  geo,
+  sameAs,
+  reviewSchemaFragment,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -52,6 +59,13 @@ function LocalBusinessSchema() {
       addressRegion: site.state,
       addressCountry: "US",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: geo.latitude,
+      longitude: geo.longitude,
+    },
+    // sameAs (GBP / Yelp / Facebook) only emitted once we have real profile URLs
+    ...(sameAs.length > 0 ? { sameAs } : {}),
     areaServed: serviceAreas.map((a) => ({
       "@type": "City",
       name: `${a.name}, CA`,
@@ -82,20 +96,8 @@ function LocalBusinessSchema() {
         },
       })),
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: testimonials.length,
-    },
-    review: testimonials.map((t) => ({
-      "@type": "Review",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "5",
-      },
-      author: { "@type": "Person", name: t.name },
-      reviewBody: t.quote,
-    })),
+    // aggregateRating + review, emitted only when we have real reviews
+    ...reviewSchemaFragment(),
     identifier: site.license,
     priceRange: `$${site.serviceCallPrice}+`,
   };

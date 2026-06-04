@@ -34,7 +34,7 @@ export function MobileNav() {
             <Section label="Service Areas" hubHref="/service-area" hubLabel="All San Diego County" onNavigate={close}
               items={areas.map((a) => ({ href: `/service-area/${a.slug}`, label: a.name }))} />
             <TopItem href="/#about" onNavigate={close}>About</TopItem>
-            <TopItem href="/#reviews" onNavigate={close}>Reviews</TopItem>
+            <TopItem href="/reviews" onNavigate={close}>Reviews</TopItem>
             <TopItem href="/#contact" onNavigate={close}>Contact</TopItem>
             <a
               href={`tel:${site.phoneRaw}`}

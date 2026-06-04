@@ -45,7 +45,7 @@ export function SiteNav() {
           </Dropdown>
 
           <TopLink href="/#about">About</TopLink>
-          <TopLink href="/#reviews">Reviews</TopLink>
+          <TopLink href="/reviews">Reviews</TopLink>
           <TopLink href="/#contact">Contact</TopLink>
         </div>
 

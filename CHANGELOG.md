@@ -3,6 +3,24 @@
 All notable changes to this project will be documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased] — 2026-06-04 — Legal pages, reviews page, schema enrichment, cleanup
+
+### Added
+- **Privacy Policy page** (`/privacy`) — covers analytics & advertising disclosures (Google Analytics, Google Ads, Meta/Facebook Ads) and California CCPA/CPRA privacy rights.
+- **Terms & Conditions page** (`/terms`).
+- **Reviews page** (`/reviews`) — highlights Google reviews with review and aggregate-rating schema.
+- **Schema enrichment** — geo coordinates and `sameAs` scaffolding added to the JSON-LD, plus a single centralized review-rating object reused across the site.
+- **Footer links** to Privacy, Terms, and Reviews.
+- The nav **"Reviews"** link now points to the dedicated `/reviews` page (was an on-page anchor).
+- The three new pages added to the sitemap.
+
+### Changed
+- README brought current — single Hanken Grotesk font (was incorrectly listed as Alfa Slab One + Fraunces), PNG logo (was described as inline SVG), and the env service-call price documented as `99`.
+- Contact / lead capture standardized on **Jobber's integrated lead form** (no in-app Resend contact form).
+
+### Removed
+- Dead code: the unused `top-banner` component and the unused `announcements` and `navLinks` arrays in `lib/site.ts`.
+
 ## [0.2.0] — 2026-06-02 — Service pages, real imagery, SEO hardening, domain prep
 
 ### Added
@@ -12,6 +30,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Mobile hamburger nav (`components/mobile-nav.tsx`)
 - OG image (`/og.png`) + OpenGraph/Twitter image tags; favicon.ico; home canonical; per-page Twitter cards
 - Custom domain `outlawappliancerepair.com` + `www` added to the Vercel project; `NEXT_PUBLIC_SITE_URL` set to the real domain. Cutover runbook in `DOMAIN-CUTOVER.md` (awaiting GoDaddy DNS flip)
+- PR #6 shipped nav dropdowns, the 14 city service-area pages (`/service-area/[city]`) + the `/service-area` hub, a cleaner logo lockup, and pricing-clarity copy
 
 ### Changed
 - Branding toned down: single clean grotesque (Hanken Grotesk), soft UI, rust as ~10% accent; western personality kept in the logo + subtle skull tidbits

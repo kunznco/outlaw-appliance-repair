@@ -128,6 +128,12 @@ export interface Testimonial {
   quote: string;
   name: string;
   where: string;
+  /** 1–5 stars; defaults to 5 where omitted. */
+  rating?: number;
+  /** Where the review came from, e.g. "Google". */
+  source?: string;
+  /** Optional ISO-ish date string, e.g. "2026-03". */
+  date?: string;
 }
 
 export const testimonials: Testimonial[] = [
@@ -136,18 +142,24 @@ export const testimonials: Testimonial[] = [
       "Jesse showed up on time. Professional and personal. He was able to perform repairs without it costing a fortune.",
     name: "Josie C.",
     where: "San Diego, CA",
+    rating: 5,
+    source: "Google",
   },
   {
     quote:
       "Jesse showed up as promised. Professional, efficient, and even sympathetic.",
     name: "Eva T.",
     where: "San Diego, CA",
+    rating: 5,
+    source: "Google",
   },
   {
     quote:
       "Great experience. Work was done quickly and smoothly. Highly recommend for quality and timely service.",
     name: "Andrea M.",
     where: "San Diego, CA",
+    rating: 5,
+    source: "Google",
   },
 ];
 
@@ -168,14 +180,6 @@ export const serviceAreas: { name: string; short: string }[] = [
   { name: "Chula Vista", short: "Chula Vista" },
 ];
 
-export const navLinks: { href: string; label: string }[] = [
-  { href: "/services", label: "Services" },
-  { href: "/#area", label: "Service Area" },
-  { href: "/#about", label: "About" },
-  { href: "/#reviews", label: "Reviews" },
-  { href: "/#contact", label: "Contact" },
-];
-
 export const trustBadges = [
   { label: "5.0 on Google", stars: true },
   { label: `${site.warranty} Warranty` },
@@ -184,11 +188,51 @@ export const trustBadges = [
   { label: "Same-Day Service" },
 ];
 
-export const announcements = [
-  `Licensed CA #${site.license}`,
-  `${site.warranty} Warranty on Every Job`,
-  "Factory-Trained Technician",
-  "Family Owned, San Diego",
-  "Same-Day Service Available",
-  `$${site.serviceCallPrice} Service Call — Fully Waived If We Can't Fix It`,
-];
+/**
+ * Review aggregate + Google Business Profile links. ratingValue/reviewCount
+ * feed the JSON-LD on the home + /reviews pages; the Google URLs drive the
+ * /reviews CTAs. The Google URLs stay empty until we have the real GBP links —
+ * the UI and schema render gracefully without them.
+ */
+export const reviewsMeta = {
+  ratingValue: "5.0",
+  reviewCount: testimonials.length,
+  // Google Business Profile share link (resolves to the Outlaw listing where
+  // visitors can read reviews and tap "Write a review"). If Chris pulls the
+  // dedicated one-tap review link from the GBP dashboard, swap it into
+  // googleReviewUrl.
+  googleProfileUrl: "https://share.google/OCLBeAVwjklLF6So9",
+  googleReviewUrl: "https://share.google/OCLBeAVwjklLF6So9",
+} as const;
+
+/** Approximate business center (San Diego) for LocalBusiness geo schema. */
+export const geo = { latitude: 32.7157, longitude: -117.1611 } as const;
+
+/** Profile URLs for schema sameAs (GBP, Yelp, Facebook…). */
+export const sameAs: string[] = ["https://share.google/OCLBeAVwjklLF6So9"];
+
+/**
+ * Honest review JSON-LD fragment. Only asserts aggregateRating + reviews when
+ * we actually have reviews to back them — an empty AggregateRating is invalid
+ * and gets flagged by Google. Spread into the business node on BOTH the home
+ * page and /reviews so the two can never drift.
+ */
+export function reviewSchemaFragment(): Record<string, unknown> {
+  if (reviewsMeta.reviewCount <= 0) return {};
+  return {
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: reviewsMeta.ratingValue,
+      reviewCount: reviewsMeta.reviewCount,
+    },
+    review: testimonials.map((t) => ({
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: String(t.rating ?? 5),
+      },
+      author: { "@type": "Person", name: t.name },
+      reviewBody: t.quote,
+    })),
+  };
+}
