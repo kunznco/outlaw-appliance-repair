@@ -44,9 +44,9 @@ export function SiteNav() {
             </AllLink>
           </Dropdown>
 
-          <TopLink href="/#about">About</TopLink>
+          <TopLink href="/about">About</TopLink>
           <TopLink href="/reviews">Reviews</TopLink>
-          <TopLink href="/#contact">Contact</TopLink>
+          <TopLink href="/contact">Contact</TopLink>
         </div>
 
         <div className="flex items-center gap-2">

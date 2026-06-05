@@ -34,11 +34,8 @@ export function FinalCta() {
           <a href={`tel:${site.phoneRaw}`} className="btn-primary">
             Call {site.owner} Now
           </a>
-          <a
-            href={`mailto:${site.email}?subject=Appliance%20Repair%20Quote`}
-            className="btn-ghost"
-          >
-            Send a Message
+          <a href="/contact" className="btn-ghost">
+            Request Service
           </a>
         </div>
       </div>
