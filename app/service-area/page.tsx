@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { jsonLdScript } from "@/lib/json-ld";
 import { Eyebrow } from "@/components/western";
 import { site } from "@/lib/site";
 import { areas } from "@/lib/areas-content";
@@ -118,7 +119,7 @@ function HubSchema() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: jsonLdScript(schema) }}
     />
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { jsonLdScript } from "@/lib/json-ld";
 import { Eyebrow } from "@/components/western";
 import {
   site,
@@ -308,7 +309,7 @@ function ReviewsSchema() {
     <script
       type="application/ld+json"
       // Stringified JSON-LD — safe, no user input
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: jsonLdScript(schema) }}
     />
   );
 }

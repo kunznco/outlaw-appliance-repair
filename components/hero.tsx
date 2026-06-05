@@ -51,7 +51,7 @@ export function Hero() {
                 <PhoneIcon />
                 Call {site.owner} · {site.phone}
               </a>
-              <a href="#contact" className="btn-ghost">
+              <a href="/contact" className="btn-ghost">
                 Get a Quote
               </a>
             </div>

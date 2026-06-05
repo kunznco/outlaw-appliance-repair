@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { jsonLdScript } from "@/lib/json-ld";
 import { Eyebrow } from "@/components/western";
 import { ServiceIcon } from "@/components/service-icon";
 import { site } from "@/lib/site";
@@ -130,7 +131,7 @@ function HubSchema() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: jsonLdScript(schema) }}
     />
   );
 }

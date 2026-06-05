@@ -8,6 +8,7 @@ import { Testimonials } from "@/components/testimonials";
 import { ServiceArea } from "@/components/service-area";
 import { FinalCta } from "@/components/final-cta";
 import { SiteFooter } from "@/components/site-footer";
+import { jsonLdScript } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import {
   site,
@@ -106,7 +107,7 @@ function LocalBusinessSchema() {
     <script
       type="application/ld+json"
       // Stringified JSON-LD — safe, no user input
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: jsonLdScript(schema) }}
     />
   );
 }
