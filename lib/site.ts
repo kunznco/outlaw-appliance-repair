@@ -136,11 +136,38 @@ export interface Testimonial {
   date?: string;
 }
 
+// Real, verbatim Google reviews curated from the Outlaw Business Profile.
+// Keep these word-for-word — they're real customers. Update the aggregate in
+// `reviewsMeta` (not this list's length) when the Google total changes.
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Jesse showed up on time. Professional and personal. He was able to perform repairs without it costing a fortune.",
+      "Outlaw Appliance is ran by the most knowledgeable, hard working and caring man. He is excellent in all his work and goes out of his way to help and advise and repair. He is honest and straight forward and I'm grateful there are tradesman like him that know what they are doing and do it fairly.",
+    name: "Shaunna J.",
+    where: "San Diego, CA",
+    rating: 5,
+    source: "Google",
+  },
+  {
+    quote:
+      "I work as a property manager and I send Outlaw out any time I run into issues with appliances at my properties. They are always quick, honest, reasonably priced, and do great work! Highly recommend!!",
+    name: "Christian B.",
+    where: "San Diego, CA",
+    rating: 5,
+    source: "Google",
+  },
+  {
+    quote:
+      "Jesse showed up on time and went to work diagnosing my mom's refrigerator problems. He was knowledgeable, professional and personal. He knew right what to do and was able to perform repairs without it costing a fortune right after Christmas. Thank you so much Jesse.",
     name: "Josie C.",
+    where: "San Diego, CA",
+    rating: 5,
+    source: "Google",
+  },
+  {
+    quote:
+      "Absolutely excellent customer service and attention to detail.",
+    name: "Michael C.",
     where: "San Diego, CA",
     rating: 5,
     source: "Google",
@@ -191,25 +218,27 @@ export const trustBadges = [
 /**
  * Review aggregate + Google Business Profile links. ratingValue/reviewCount
  * feed the JSON-LD on the home + /reviews pages; the Google URLs drive the
- * /reviews CTAs. The Google URLs stay empty until we have the real GBP links —
- * the UI and schema render gracefully without them.
+ * /reviews CTAs (read all reviews + write a review). reviewCount is the real
+ * Google total, intentionally decoupled from how many reviews we display.
  */
 export const reviewsMeta = {
   ratingValue: "5.0",
-  reviewCount: testimonials.length,
-  // Google Business Profile share link (resolves to the Outlaw listing where
-  // visitors can read reviews and tap "Write a review"). If Chris pulls the
-  // dedicated one-tap review link from the GBP dashboard, swap it into
-  // googleReviewUrl.
-  googleProfileUrl: "https://share.google/OCLBeAVwjklLF6So9",
-  googleReviewUrl: "https://share.google/OCLBeAVwjklLF6So9",
+  // The real Google total — verified on the Business Profile, intentionally
+  // decoupled from how many reviews we display below. Bump as it grows.
+  reviewCount: 33,
+  // GBP listing (read all reviews) + the dedicated one-tap "write a review" link.
+  googleProfileUrl: "https://www.google.com/maps?cid=3171954100122581360",
+  googleReviewUrl: "https://g.page/r/CXB5psVyCwUsEBM/review",
 } as const;
 
 /** Approximate business center (San Diego) for LocalBusiness geo schema. */
 export const geo = { latitude: 32.7157, longitude: -117.1611 } as const;
 
-/** Profile URLs for schema sameAs (GBP, Yelp, Facebook…). */
-export const sameAs: string[] = ["https://share.google/OCLBeAVwjklLF6So9"];
+/** Official profile URLs for schema sameAs (Google Business Profile, Instagram). */
+export const sameAs: string[] = [
+  "https://www.google.com/maps?cid=3171954100122581360",
+  "https://www.instagram.com/outlaw_appliance_repair/",
+];
 
 /**
  * Honest review JSON-LD fragment. Only asserts aggregateRating + reviews when
