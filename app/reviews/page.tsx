@@ -61,7 +61,7 @@ export default function ReviewsPage() {
                 className="mt-5 text-ink-soft leading-relaxed max-w-[54ch]"
                 style={{ fontSize: "1.1rem" }}
               >
-                {site.owner} runs every job himself — no call center, no
+                {site.owner}{" "}runs every job himself — no call center, no
                 rotating crew. You get an on-time arrival, an honest diagnosis,
                 and a fix that holds. Here&apos;s what your neighbors across San
                 Diego County had to say after we showed up.
